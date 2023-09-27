@@ -6,8 +6,6 @@ category: Jekyll
 ---
 
 
-# Navigation
-
 ## School Affairs
 - <a href="https://my.uakron.edu" target="_blank">My Akron</a>  
 - <a href="https://uafom.uakron.edu" target="_blank">FOM system</a>  
