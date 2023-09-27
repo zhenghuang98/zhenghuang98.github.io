@@ -5,6 +5,9 @@ date: 2023-09-26
 category: Jekyll
 layout: post
 ---
+本文来源于 [哔哩哔哩@青空の霞光](https://www.bilibili.com/video/BV1Cr4y137os) ，提供的网站已经寄了。
+实际采用的版本来自[C语言笔记（来源于互联网） - PaiBook](https://www.paibook.top/C-language/cnote.html)。在此基础上进行了一些增删及注解。
+
 ## C程序基本格式
 
 
