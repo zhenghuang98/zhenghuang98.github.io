@@ -1,5 +1,9 @@
 # 个人网站
-网站涉及到的语言为Jekyll，html，css，yaml，Liquid，
+网站涉及到的语言为Jekyll，html，css，yaml，Liquid  
+jekyll 官网  
+https://jekyllrb.com/docs/  
+http://jekyllcn.com/docs/home/ 中文版  
+
 ## 目录结构
 
 ### config.yml
