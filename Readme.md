@@ -4,6 +4,9 @@ jekyll 官网
 https://jekyllrb.com/docs/  
 http://jekyllcn.com/docs/home/ 中文版  
 
+## 
+http://zyuandong.github.io/tags#jekyll
+
 ## 目录结构
 
 ### config.yml
