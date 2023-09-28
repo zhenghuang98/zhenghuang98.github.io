@@ -32,8 +32,11 @@ github_username:  ZhengHuang98
 
 # Build settings
 remote_theme: sighingnow/jekyll-gitbook
+
 plugins:
   - jekyll-feed
+  - jekyll-readme-index
+  - jemoji
   - rouge
 
 toc:

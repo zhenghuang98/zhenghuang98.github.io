@@ -1,5 +1,5 @@
 # 个人网站
-网站涉及到的语言为Jekyll，html，css，yaml，Liquid  
+网站涉及到的语言为Jekyll，html，css，yaml，Liquid，kramdown  
 jekyll 官网  
 https://jekyllrb.com/docs/  
 http://jekyllcn.com/docs/home/ 中文版  
@@ -40,3 +40,8 @@ http://zyuandong.github.io/tags#jekyll
 ## 主题（theme）
 含有默认的layout文件（文件，样式表）
 可以用自己站点的内容覆盖
+
+# Tips 
+## Install Jekyll on Windows 
+
+## Syntax highlight

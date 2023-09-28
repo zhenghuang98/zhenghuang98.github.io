@@ -17,7 +17,13 @@ category: Jekyll
 ## Academic Research
 
 ### Paper Search
+- <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+- <a href="https://libguides.uakron.edu/az/scifinder-n" target="_blank">Sci Finder</a>
+  <p>Izumiunsei IU22 Akron</p>
+- <a href="https://libguides.uakron.edu/az/web-of-science" target="_blank">Web of Science</a>
+- <a href="https://libguides.uakron.edu/az/acs-publications" target="_blank">ACS Publications</a>
 
+  <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
 ### Book Search
 - [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
 - 
@@ -46,8 +52,12 @@ notion
 ### 整点游戏
 
 ### 整点二次元
+漫画
 
 ### 看看新闻
 
 ### 围观弱智言论
+
+### 多读书
+google book
 
