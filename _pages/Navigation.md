@@ -19,11 +19,11 @@ category: Jekyll
 ### Paper Search
 - <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
 - <a href="https://libguides.uakron.edu/az/scifinder-n" target="_blank">Sci Finder</a>
-  <p>Izumiunsei IU22 Akron</p>
+  - Izumiunsei IU22 Akron
 - <a href="https://libguides.uakron.edu/az/web-of-science" target="_blank">Web of Science</a>
 - <a href="https://libguides.uakron.edu/az/acs-publications" target="_blank">ACS Publications</a>
 
-  <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
+- <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
 ### Book Search
 - [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
 - 
