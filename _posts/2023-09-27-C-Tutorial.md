@@ -20,7 +20,7 @@ layout: post
 
 前面我们在创建项目之后自动生成了一个`.c`文件，这个就是我们编写的程序代码文件：
 
-```C
+```c
 #include <stdio.h>
     
 int main() {
