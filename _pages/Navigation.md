@@ -12,8 +12,10 @@ category: Jekyll
 - <a href="https://www.myworkday.com/uakron/d/home.htmld" target="_blank">Workday</a>  
 - <a href="https://www.uakron.edu/rec/" target="_blank">Recreation Center</a>  
   - <a href="https://www.uakron.edu/rec/live-counts" target="_blank">Recreation Center Live Activity Counts</a>  
+  - [Court Schedules : The University of Akron, Ohio (uakron.edu)](https://www.uakron.edu/rec/hours/court-schedules)
 - <a href="https://uakron-sp.transactcampus.com/eAccounts/AccountSummary.aspx?menu=0" target="_blank">Zip Card Online</a>
-
+- <a href="https://www.uakron.edu/dining/" target="_blank">Dining Service</a>
+  - <a href="https://akron.campusdish.com/" target="_blank">Hours</a>
 ## Academic Research
 
 ### Paper Search
