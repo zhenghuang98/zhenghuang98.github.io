@@ -16,6 +16,8 @@ category: Jekyll
 - <a href="https://uakron-sp.transactcampus.com/eAccounts/AccountSummary.aspx?menu=0" target="_blank">Zip Card Online</a>
 - <a href="https://www.uakron.edu/dining/" target="_blank">Dining Service</a>
   - <a href="https://akron.campusdish.com/" target="_blank">Hours</a>
+- <a href="https://uazips.sharepoint.com/teams/MagneticResonanceCenter/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120009C21FC8704D9D3489CA01591BF401585&id=%2Fteams%2FMagneticResonanceCenter%2FShared%20Documents%2Fmrc%2Fmrc%5Fservice&viewid=45b24334%2Dbcea%2D425f%2Dad63%2D0879ff3d5bb6
+  " target="_blank">MRC service folder</a>   
 ## Academic Research
 
 ### Paper Search
@@ -32,10 +34,12 @@ category: Jekyll
 
 ### quick jump
 notion
-
+- <a href="https://spinevolution.com/" target="_blank">spin evolution</a>
+- 
 ## Personal Interest
 
 ### 编程
+
 #### C
 #### Python
 #### HTML，css
@@ -54,6 +58,8 @@ notion
 ### 整点游戏
 
 ### 整点二次元
+[Arknights | Facebook](https://id-id.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
+
 漫画
 
 ### 看看新闻
@@ -61,5 +67,5 @@ notion
 ### 围观弱智言论
 
 ### 多读书
-google book
+google book (play book)
 
