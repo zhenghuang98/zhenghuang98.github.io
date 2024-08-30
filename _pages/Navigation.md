@@ -18,8 +18,9 @@ category: Jekyll
   - <a href="https://akron.campusdish.com/" target="_blank">Hours</a>
 - <a href="https://uazips.sharepoint.com/teams/MagneticResonanceCenter/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120009C21FC8704D9D3489CA01591BF401585&id=%2Fteams%2FMagneticResonanceCenter%2FShared%20Documents%2Fmrc%2Fmrc%5Fservice&viewid=45b24334%2Dbcea%2D425f%2Dad63%2D0879ff3d5bb6
   " target="_blank">MRC service folder</a>   
-- <a href="https://uakron.scishield.com/" target="_blank">Scishield</a>
-- <a href="https://uazips.sharepoint.com/teams/NMRExperimentdata/" target="_blank">data share point</a>
+- <a href="https://uakron.scishield.com/" target="_blank">Scishield</a>  
+- <a href="https://uazips.sharepoint.com/teams/NMRExperimentdata/" target="_blank">data share point</a>  
+- [PFOC | Physical Facilities : The University of Akron, Ohio (uakron.edu)](https://www.uakron.edu/pfoc/index.dot){:target="_blank"}
 ## Academic Research
 - [References (scribbr.com)](https://www.scribbr.com/citation/generator/){:target="_blank"}
 
@@ -38,7 +39,7 @@ category: Jekyll
 
 ### quick jump
 notion
-- <a href="https://spinevolution.com/" target="_blank">spin evolution</a>
+- <a href="https://spinevolution.com/" target="_blank">spin evolution</a>  
 - 
 ## Personal Interest
 
@@ -51,12 +52,13 @@ notion
 
 #### HTML，css,Javascript
 - [Learn to Code — For Free — Coding Courses for Busy People (freecodecamp.org)](https://www.freecodecamp.org/learn){:target="_blank"}
-- <a href="https://www.bilibili.com/video/BV1kM4y127Li/" target="_blank">黑马视频HTML+css</a>
+- <a href="https://www.bilibili.com/video/BV1kM4y127Li/" target="_blank">黑马视频HTML+css</a>  
+
 #### R
 - [484/584 MachLng (nmimoto.github.io)](https://nmimoto.github.io/484/index.html){:target="_blank"}
 
 #### 正则表达式
-- <a href="https://regexone.com/lesson/introduction_abcs" target="_blank">Regexone</a>
+- <a href="https://regexone.com/lesson/introduction_abcs" target="_blank">Regexone</a>  
 
 ### 语言
 
@@ -66,20 +68,24 @@ notion
 
 ## Touching Fish  
 
+### 看看摄图
+- [デジカメinfo (digicame-info.com)](https://digicame-info.com/){:target="_blank"}
+- [镜头 - 色影无忌_中文影像生活门户 (xitek.com)](https://info.xitek.com/tag-42.html){:target="_blank"}
+- 
 ### 整点音乐
 - [ACG漫音社 _ 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~ (acgjc.com)](https://www.acgjc.com/){:target="_blank"}
 - [萌音 | ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
 ### 整点游戏
 
 ### 整点二次元
-- [Arknights | Facebook](https://id-id.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
+[Arknights | Facebook](https://id-id.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
 
 漫画
 
 ### 看看新闻
-
+[中央社 CNA](https://www.cna.com.tw/){:target="_blank"}
 ### 围观弱智言论
 
 ### 多读书
-google book (play book)
-
+[Google Play 图书](https://play.google.com/books){:target="_blank"}
+[超理论坛 (chaoli.club)](https://chaoli.club/index.php/conversations/all/?search=%23%E7%B2%BE%E5%93%81){:target="_blank"}
