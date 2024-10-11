@@ -70,14 +70,17 @@ notion
 
 ### 看看摄图
 - [デジカメinfo (digicame-info.com)](https://digicame-info.com/){:target="_blank"}
-- [镜头 - 色影无忌_中文影像生活门户 (xitek.com)](https://info.xitek.com/tag-42.html){:target="_blank"}
-- 
-### 整点音乐
+- [镜头 - 色影无忌_中文影像生活门户 (xitek.com)](https://info.xitek.com/tag-42.html){:target="_blank"}  
+
+
+### 整点音乐  
 - [ACG漫音社 _ 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~ (acgjc.com)](https://www.acgjc.com/){:target="_blank"}
 - [萌音 | ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
+
 ### 整点游戏
 - [公招计算 - PRTS - 玩家共同构筑的明日方舟中文Wiki](https://prts.wiki/w/%E5%85%AC%E6%8B%9B%E8%AE%A1%E7%AE%97){:target="_blank"} 
 - [明日方舟一图流 (yituliu.cn)](https://ark.yituliu.cn/){:target="_blank"}
+
 ### 整点二次元
 - [Arknights | Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
 - [comick.io/home](https://comick.io/home) 漫画 
@@ -85,6 +88,7 @@ notion
 
 ### 看看新闻
 - [中央社 CNA](https://www.cna.com.tw/){:target="_blank"}
+
 ### 围观弱智言论
 
 ### 多读书
