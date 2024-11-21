@@ -35,12 +35,16 @@ category: Jekyll
 - <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
 ### Book Search
 - [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
-- 
+- [Wiley Online Library | Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
+- [JSTOR Home](https://www.jstor.org/)
+
 
 ### quick jump
 notion
 - <a href="https://spinevolution.com/" target="_blank">spin evolution</a>  
-- 
+
+- [HandBook of Polymer Crystallization](https://ebookcentral.proquest.com/lib/uakron/reader.action?docID=1209630)
+
 ## Personal Interest
 
 ### 编程
@@ -61,6 +65,11 @@ notion
 - <a href="https://regexone.com/lesson/introduction_abcs" target="_blank">Regexone</a>  
 
 ### 语言
+- [Leipzig Corpora Collection - Corpora and Language Statistics](https://cls.corpora.uni-leipzig.de/en){:target="_blank"}
+- [Appendix:German cognates with English/Regular cognates with differing consonant values/Proto-Germanic Unvoiced Stop Consonants - Wiktionary, the free dictionary](https://en.wiktionary.org/wiki/Appendix:German_cognates_with_English/Regular_cognates_with_differing_consonant_values/Proto-Germanic_Unvoiced_Stop_Consonants){:target="_blank"}
+- [Digitales Wörterbuch der deutschen Sprache](https://www.dwds.de/){:target="_blank"}
+- [Etymonline - Online Etymology Dictionary](https://www.etymonline.com/)
+
 
 ### 物理
 
@@ -76,6 +85,9 @@ notion
 ### 整点音乐  
 - [ACG漫音社 _ 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~ (acgjc.com)](https://www.acgjc.com/){:target="_blank"}
 - [萌音 | ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
+- [塞壬唱片网站抓取本地音乐封装（网盘分享） - 哔哩哔哩](https://www.bilibili.com/read/cv31176805/){:target="_blank"}
+- [塞壬唱片 - A WORLD FAMILIARLY UNKNOWN](https://monster-siren.hypergryph.com/music/){:target="_blank"}
+  
 
 ### 整点游戏
 - [公招计算 - PRTS - 玩家共同构筑的明日方舟中文Wiki](https://prts.wiki/w/%E5%85%AC%E6%8B%9B%E8%AE%A1%E7%AE%97){:target="_blank"} 
