@@ -35,7 +35,7 @@ category: Jekyll
 - <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
 ### Book Search
 - [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
-- [Wiley Online Library | Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
+- [Wiley Online Library|Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
 - [JSTOR Home](https://www.jstor.org/)
 
 
@@ -81,10 +81,13 @@ notion
 - [デジカメinfo (digicame-info.com)](https://digicame-info.com/){:target="_blank"}
 - [镜头 - 色影无忌_中文影像生活门户 (xitek.com)](https://info.xitek.com/tag-42.html){:target="_blank"}  
 
+### 看看新闻
+- [中央社 CNA](https://www.cna.com.tw/){:target="_blank"}
+
 
 ### 整点音乐  
-- [ACG漫音社 _ 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~ (acgjc.com)](https://www.acgjc.com/){:target="_blank"}
-- [萌音 | ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
+- [ACG漫音社 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~ (acgjc.com)](https://www.acgjc.com/){:target="_blank"}
+- [萌音|ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
 - [塞壬唱片网站抓取本地音乐封装（网盘分享） - 哔哩哔哩](https://www.bilibili.com/read/cv31176805/){:target="_blank"}
 - [塞壬唱片 - A WORLD FAMILIARLY UNKNOWN](https://monster-siren.hypergryph.com/music/){:target="_blank"}
   
@@ -94,15 +97,18 @@ notion
 - [明日方舟一图流 (yituliu.cn)](https://ark.yituliu.cn/){:target="_blank"}
 
 ### 整点二次元
-- [Arknights | Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
+- [Arknights|Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
 - [comick.io/home](https://comick.io/home) 漫画 
 
-
-### 看看新闻
-- [中央社 CNA](https://www.cna.com.tw/){:target="_blank"}
-
+### 整点资源
+- [Adobe 系列软件 2017－2025高速下载直链](https://flowus.cn/share/ab4b6b86-34a6-4aa0-a679-b4a221b8e41d)
+- 
 ### 围观弱智言论
 
 ### 多读书
 - [Google Play 图书](https://play.google.com/books){:target="_blank"}
 - [超理论坛 (chaoli.club)](https://chaoli.club/index.php/conversations/all/?search=%23%E7%B2%BE%E5%93%81){:target="_blank"}
+
+### 查查你的
+- [Employer Detail | Open The Books](https://www.openthebooks.com/members/employer-detail/?Id=17875&tab=1){:target="_blank"}  
+- 
