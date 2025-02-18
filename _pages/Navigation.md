@@ -68,7 +68,9 @@ notion
 - [Leipzig Corpora Collection - Corpora and Language Statistics](https://cls.corpora.uni-leipzig.de/en){:target="_blank"}
 - [Appendix:German cognates with English/Regular cognates with differing consonant values/Proto-Germanic Unvoiced Stop Consonants - Wiktionary, the free dictionary](https://en.wiktionary.org/wiki/Appendix:German_cognates_with_English/Regular_cognates_with_differing_consonant_values/Proto-Germanic_Unvoiced_Stop_Consonants){:target="_blank"}
 - [Digitales Wörterbuch der deutschen Sprache](https://www.dwds.de/){:target="_blank"}
-- [Etymonline - Online Etymology Dictionary](https://www.etymonline.com/)
+- [Etymonline - Online Etymology Dictionary](https://www.etymonline.com/){:target="_blank"}
+- [Netspeak](https://netspeak.org/){:target="_blank"} 英语词频查询
+- [粵音資料集叢](https://jyut.net/){:target="_blank"}  
 
 
 ### 物理
@@ -87,7 +89,7 @@ notion
 
 ### 整点音乐  
 - [ACG漫音社 动漫无损音乐下载资讯站_专注分享二次元高品质音乐~ (acgjc.com)](https://www.acgjc.com/){:target="_blank"}
-- [萌音|ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
+- [萌音 ACG音乐网站 (moesound.com)](https://moesound.com/index.php){:target="_blank"}
 - [塞壬唱片网站抓取本地音乐封装（网盘分享） - 哔哩哔哩](https://www.bilibili.com/read/cv31176805/){:target="_blank"}
 - [塞壬唱片 - A WORLD FAMILIARLY UNKNOWN](https://monster-siren.hypergryph.com/music/){:target="_blank"}
   
@@ -97,13 +99,18 @@ notion
 - [明日方舟一图流 (yituliu.cn)](https://ark.yituliu.cn/){:target="_blank"}
 
 ### 整点二次元
-- [Arknights|Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
-- [comick.io/home](https://comick.io/home) 漫画 
+- [Arknights Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
+- [comick.io/home](https://comick.io/home){:target="_blank"}  漫画   
 
 ### 整点资源
-- [Adobe 系列软件 2017－2025高速下载直链](https://flowus.cn/share/ab4b6b86-34a6-4aa0-a679-b4a221b8e41d)
-- 
+- [Adobe 系列软件 2017－2025高速下载直链](https://flowus.cn/share/ab4b6b86-34a6-4aa0-a679-b4a221b8e41d){:target="_blank"}  
+
+
 ### 围观弱智言论
+- [百度贴吧——全球领先的中文社区](https://tieba.baidu.com/){:target="_blank"} 
+- [流浪防区](https://www.reddit.com/r/China_irl/){:target="_blank"}
+
+
 
 ### 多读书
 - [Google Play 图书](https://play.google.com/books){:target="_blank"}
@@ -111,4 +118,6 @@ notion
 
 ### 查查你的
 - [Employer Detail | Open The Books](https://www.openthebooks.com/members/employer-detail/?Id=17875&tab=1){:target="_blank"}  
-- 
+
+### 别开盒了
+- [编程随想的博客](https://program-think.blogspot.com/){:target="_blank"}  
