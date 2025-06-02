@@ -43,7 +43,7 @@ category: Jekyll
 notion
 - <a href="https://spinevolution.com/" target="_blank">spin evolution</a>  
 
-- [HandBook of Polymer Crystallization](https://ebookcentral.proquest.com/lib/uakron/reader.action?docID=1209630)
+- [HandBook of Polymer Crystallization](https://ebookcentral.proquest.com/lib/uakron/reader.action?docID=1209630){:target="_blank"}
 
 ## Personal Interest
 

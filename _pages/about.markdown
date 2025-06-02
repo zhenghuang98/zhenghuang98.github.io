@@ -7,6 +7,15 @@ category: Jekyll
 
 也没什么好说的，就是一个一般路过博士生罢了
 
+<div> 天文学词典查询</div>
+            <div>
+              <form action="https://nadc.china-vo.org/astrodict/fuzzy" method="get">
+               <input type="text"  data-cke-saved-name="word" name="word" />
+              <input type="submit" />
+              </form>
+            </div>
+
+
 ---
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
