@@ -24,7 +24,6 @@ category: Jekyll
 ## Academic Research
 - [References (scribbr.com)](https://www.scribbr.com/citation/generator/){:target="_blank"}
 
-### 
 ### Paper Search
 - <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
 - <a href="https://libguides.uakron.edu/az/scifinder-n" target="_blank">Sci Finder</a>
@@ -36,7 +35,7 @@ category: Jekyll
 ### Book Search
 - [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
 - <a href="https://www.uakron.edu/libraries/" target="_blank">Bierce Lib</a>
-- [Wiley Online Library|Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
+- [Wiley Online Library\|Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
 - [JSTOR Home](https://www.jstor.org/)
 
 
@@ -118,7 +117,7 @@ notion
 - [超理论坛 (chaoli.club)](https://chaoli.club/index.php/conversations/all/?search=%23%E7%B2%BE%E5%93%81){:target="_blank"}
 
 ### 查查你的
-- [Employer Detail | Open The Books](https://www.openthebooks.com/members/employer-detail/?Id=17875&tab=1){:target="_blank"}  
+- [Employer Detail \| Open The Books](https://www.openthebooks.com/members/employer-detail/?Id=17875&tab=1){:target="_blank"}  
 
 ### 别开盒了
 - [编程随想的博客](https://program-think.blogspot.com/){:target="_blank"}  
