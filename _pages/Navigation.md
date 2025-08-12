@@ -16,10 +16,10 @@ category: Jekyll
 - <a href="https://uakron-sp.transactcampus.com/eAccounts/AccountSummary.aspx?menu=0" target="_blank">Zip Card Online</a>
 - <a href="https://www.uakron.edu/dining/" target="_blank">Dining Service</a>
   - <a href="https://akron.campusdish.com/" target="_blank">Hours</a>
-- <a href="https://uazips.sharepoint.com/teams/MagneticResonanceCenter/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120009C21FC8704D9D3489CA01591BF401585&id=%2Fteams%2FMagneticResonanceCenter%2FShared%20Documents%2Fmrc%2Fmrc%5Fservice&viewid=45b24334%2Dbcea%2D425f%2Dad63%2D0879ff3d5bb6
-  " target="_blank">MRC service folder</a>   
+- <a href="https://uazips.sharepoint.com/teams/MagneticResonanceCenter/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120009C21FC8704D9D3489CA01591BF401585&id=%2Fteams%2FMagneticResonanceCenter%2FShared%20Documents%2Fmrc%2Fmrc%5Fservice&viewid=45b24334%2Dbcea%2D425f%2Dad63%2D0879ff3d5bb6" target="_blank">MRC service folder</a>   
 - <a href="https://uakron.scishield.com/" target="_blank">Scishield</a>  
 - <a href="https://uazips.sharepoint.com/teams/NMRExperimentdata/" target="_blank">data share point</a>  
+- <a href="https://www.uakron.edu/chemistry/chemstores/" target="_blank">Chem store</a>
 - [PFOC | Physical Facilities : The University of Akron, Ohio (uakron.edu)](https://www.uakron.edu/pfoc/index.dot){:target="_blank"}
 ## Academic Research
 - [References (scribbr.com)](https://www.scribbr.com/citation/generator/){:target="_blank"}
@@ -35,6 +35,7 @@ category: Jekyll
 - <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
 ### Book Search
 - [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
+- <a href="https://www.uakron.edu/libraries/" target="_blank">Bierce Lib</a>
 - [Wiley Online Library|Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
 - [JSTOR Home](https://www.jstor.org/)
 
