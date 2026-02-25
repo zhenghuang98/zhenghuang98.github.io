@@ -12,7 +12,7 @@ category: Jekyll
 - <a href="https://www.myworkday.com/uakron/d/home.htmld" target="_blank">Workday</a>  
 - <a href="https://www.uakron.edu/rec/" target="_blank">Recreation Center</a>  
   - <a href="https://www.uakron.edu/rec/live-counts" target="_blank">Recreation Center Live Activity Counts</a>  
-  - [Court Schedules : The University of Akron, Ohio (uakron.edu)](https://www.uakron.edu/rec/hours/court-schedules)
+  - [Court Schedules : The University of Akron, Ohio (uakron.edu)](https://uakron.dserec.com/online/fcscheduling/availabilitycalendar)
 - <a href="https://uakron-sp.transactcampus.com/eAccounts/AccountSummary.aspx?menu=0" target="_blank">Zip Card Online</a>
 - <a href="https://www.uakron.edu/dining/" target="_blank">Dining Service</a>
   - <a href="https://akron.campusdish.com/" target="_blank">Hours</a>
@@ -34,7 +34,7 @@ category: Jekyll
 
 - <a href="http://tool.yovisun.com/scihub/" target="_blank">Sci Hub</a>
 ### Book Search
-- [The University of Akron Libraries](https://library.uakron.edu/){:target="_blank"}
+- [The University of Akron Libraries](https://library.search.uakron.edu/){:target="_blank"}
 - [Wiley Online Library|Scientific research articles, journals, books, and reference works](https://onlinelibrary.wiley.com/?skip=true){:target="_blank"}
 - [JSTOR Home](https://www.jstor.org/)
 
@@ -99,8 +99,8 @@ notion
 - [明日方舟一图流 (yituliu.cn)](https://ark.yituliu.cn/){:target="_blank"}
 
 ### 整点二次元
-- [Arknights Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} 换壁纸
-- [comick.io/home](https://comick.io/home){:target="_blank"}  漫画   
+- [Arknights Facebook](https://www.facebook.com/ArknightsGlobal/){:target="_blank"} ~~换壁纸~~ 完辣不更新了
+- [comick.io/home](https://comick.io/home){:target="_blank"}  ~~漫画~~ 也完辣被端了
 
 ### 整点资源
 - [Adobe 系列软件 2017－2025高速下载直链](https://flowus.cn/share/ab4b6b86-34a6-4aa0-a679-b4a221b8e41d){:target="_blank"}  
