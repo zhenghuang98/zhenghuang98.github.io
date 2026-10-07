@@ -66,6 +66,16 @@ collections:
   pages:
     output: true
     permalink: /:collection/:path/
+  aurora:
+    output: true
+    permalink: /:collection/:path/
+
+# Controls the order of the sections (separated by dividers) in the left
+# navigation sidebar. Each collection becomes its own section.
+ordered_collections:
+  - pages
+  - aurora
+  - posts
 
 # Exclude from processing.
 # The following items will not be processed, by default.
