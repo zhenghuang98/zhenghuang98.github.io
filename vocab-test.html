@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Vocabulary Level Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #000000;
+      color: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      padding: 60px 20px;
+    }
+
+    /* === TYPOGRAPHY === */
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.33;
+      letter-spacing: -0.013em;
+      text-align: center;
+      color: #a1a1a6;
+      margin-bottom: 40px;
+    }
+
+    p, li {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.47;
+      letter-spacing: -0.024px;
+      color: #a1a1a6;
+    }
+
+    strong {
+      font-weight: 600;
+      color: #f5f5f7;
+    }
+
+    /* === SECTIONS === */
+    .dark-section {
+      background: #000000;
+      padding: 60px 20px;
+    }
+
+    .light-section {
+      background: #f5f5f7;
+      padding: 60px 20px;
+      color: #1d1d1f;
+    }
+
+    .light-section p,
+    .light-section li {
+      color: #424245;
+    }
+
+    .light-section strong {
+      color: #1d1d1f;
+    }
+
+    /* === INTRO SCREEN === */
+    #intro {
+      text-align: center;
+    }
+
+    .intro-description {
+      max-width: 600px;
+      margin: 0 auto 48px;
+      font-size: 1.125rem;
+      line-height: 1.56;
+      color: #a1a1a6;
+    }
+
+    .feature-list {
+      list-style: none;
+      max-width: 600px;
+      margin: 32px auto;
+      text-align: left;
+    }
+
+    .feature-list li {
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-list li:before {
+      content: '✓';
+      color: #0071e3;
+      font-weight: 600;
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+
+    .btn-container {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* === BUTTONS === */
+    .btn-primary {
+      background: #0071e3;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.47;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: -0.024px;
+    }
+
+    .btn-primary:hover {
+      background: #0066cc;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #0071e3;
+      border: 1px solid #0071e3;
+      padding: 8px 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.47;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: -0.024px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 113, 227, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .btn-answer {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #1d1d1f;
+      color: #f5f5f7;
+    }
+
+    .btn-answer:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-answer.know {
+      background: #0071e3;
+      color: white;
+      border-color: #0071e3;
+    }
+
+    .btn-answer.maybe {
+      background: #424245;
+      color: #f5f5f7;
+      border-color: #424245;
+    }
+
+    .btn-answer.dont {
+      background: #1d1d1f;
+      color: #a1a1a6;
+      border-color: #424245;
+    }
+
+    /* === PROGRESS BAR === */
+    .progress-container {
+      margin-bottom: 40px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: #a1a1a6;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 4px;
+      background: #424245;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: #0071e3;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    /* === TEST SCREEN === */
+    #test {
+      text-align: center;
+    }
+
+    .test-mode-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      background: rgba(0, 113, 227, 0.2);
+      color: #2997ff;
+      border-radius: 4px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .word-display {
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      margin: 80px 0 40px;
+      color: #f5f5f7;
+      word-break: break-word;
+    }
+
+    .question-text {
+      font-size: 1.125rem;
+      color: #a1a1a6;
+      margin-bottom: 40px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .show-def-btn {
+      background: none;
+      border: 1px solid #424245;
+      color: #a1a1a6;
+      padding: 6px 12px;
+      font-size: 0.875rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 16px;
+    }
+
+    .show-def-btn:hover {
+      border-color: #a1a1a6;
+      color: #f5f5f7;
+    }
+
+    .definition {
+      display: none;
+      background: #1d1d1f;
+      border-left: 3px solid #0071e3;
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: #a1a1a6;
+    }
+
+    .definition.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === RESULT SCREEN === */
+    #result {
+      text-align: center;
+    }
+
+    .result-hero-number {
+      font-size: 5rem;
+      font-weight: 600;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      color: #0071e3;
+      margin: 40px 0 16px;
+    }
+
+    .result-hero-label {
+      font-size: 1.25rem;
+      color: #a1a1a6;
+      margin-bottom: 8px;
+    }
+
+    .cefr-badge {
+      display: inline-block;
+      background: #0071e3;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 980px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 24px 0;
+    }
+
+    .level-bar-container {
+      margin: 40px 0;
+    }
+
+    .level-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #424245;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .level-bar-fill {
+      height: 100%;
+      background: #0071e3;
+      border-radius: 3px;
+      transition: width 1.5s ease;
+    }
+
+    .level-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #a1a1a6;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .stat-box {
+      background: #1d1d1f;
+      padding: 24px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #0071e3;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: #a1a1a6;
+    }
+
+    .knowledge-chart {
+      margin: 40px 0;
+    }
+
+    .chart-title {
+      font-size: 0.875rem;
+      color: #a1a1a6;
+      text-align: left;
+      margin-bottom: 12px;
+    }
+
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      height: 120px;
+      gap: 4px;
+      background: #1d1d1f;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .chart-bar {
+      flex: 1;
+      background: #0071e3;
+      border-radius: 2px 2px 0 0;
+      min-height: 4px;
+      transition: background 0.2s;
+    }
+
+    .chart-bar:hover {
+      background: #2997ff;
+    }
+
+    .chart-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #a1a1a6;
+      margin-top: 8px;
+    }
+
+    .refinement-section {
+      background: #1d1d1f;
+      border-radius: 8px;
+      padding: 32px;
+      margin: 40px 0;
+      text-align: left;
+    }
+
+    .refinement-section h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+
+    .refinement-section p {
+      margin-bottom: 20px;
+    }
+
+    .refinement-input-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .refinement-input-group label {
+      font-size: 1rem;
+      color: #a1a1a6;
+      flex: 0 0 auto;
+    }
+
+    .refinement-input-group input {
+      background: #000000;
+      border: 1px solid #424245;
+      color: #f5f5f7;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 120px;
+    }
+
+    .refinement-input-group input:focus {
+      outline: none;
+      border-color: #0071e3;
+      background: rgba(0, 113, 227, 0.05);
+    }
+
+    .comparison-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .compare-item {
+      background: #1d1d1f;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .compare-label {
+      font-size: 0.75rem;
+      color: #a1a1a6;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .compare-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0071e3;
+    }
+
+    .compare-value.old {
+      color: #a1a1a6;
+      text-decoration: line-through;
+      font-size: 1rem;
+    }
+
+    .algo-section {
+      background: #f5f5f7;
+      border-radius: 8px;
+      padding: 32px;
+      margin: 40px 0;
+      text-align: left;
+      color: #1d1d1f;
+    }
+
+    .algo-section h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1d1d1f;
+    }
+
+    .algo-section p {
+      color: #424245;
+      margin-bottom: 16px;
+    }
+
+    .math-note {
+      background: rgba(0, 113, 227, 0.1);
+      border: 1px solid rgba(0, 113, 227, 0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 0.875rem;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+
+    .confidence-note {
+      background: #1d1d1f;
+      border: 1px solid #424245;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 24px 0;
+      font-size: 0.9375rem;
+      color: #a1a1a6;
+    }
+
+    .confidence-note strong {
+      color: #f5f5f7;
+    }
+
+    /* === UTILITY === */
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+      }
+
+      .word-display {
+        font-size: 2.5rem;
+        margin: 60px 0 30px;
+      }
+
+      .result-hero-number {
+        font-size: 3.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-box {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .word-display {
+        font-size: 2rem;
+        margin: 40px 0 20px;
+      }
+
+      .result-hero-number {
+        font-size: 2.5rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn-answer {
+        width: 100%;
+      }
+
+      .refinement-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .refinement-input-group input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dark-section">
+    <div class="container">
+      <!-- Intro Screen -->
+      <div id="intro">
+        <h1>Vocabulary Level Test</h1>
+        <p class="subtitle">Discover your English vocabulary size</p>
+        <p class="intro-description">
+          This test estimates your English vocabulary size using the <strong>top 17,600 most frequent English words</strong>, ranked by usage frequency. The test uses an <strong>adaptive binary search algorithm</strong> to efficiently find your vocabulary boundary.
+        </p>
+        <ul class="feature-list">
+          <li>Quick test: ~40–60 words (3–5 minutes)</li>
+          <li>Advanced refinement: ~40 more focused words after quick test</li>
+          <li>Adaptive difficulty that adjusts to your level</li>
+          <li>Detailed results with CEFR level and confidence intervals</li>
+        </ul>
+        <p class="intro-description">
+          For each word, answer whether you <strong>know its meaning well enough to use it</strong>. If you only vaguely recognize it, choose "Not Sure."
+        </p>
+        <div class="btn-container">
+          <button class="btn-primary" onclick="startTest('quick')">Start Quick Test</button>
+        </div>
+      </div>
+
+      <!-- Test Screen -->
+      <div id="test" class="hidden">
+        <span class="test-mode-badge" id="test-mode-badge">Quick Test</span>
+        <div class="progress-container">
+          <div class="progress-text">
+            <span id="progress-label">Word 1 / ~50</span>
+            <span id="phase-label">Scanning</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+        </div>
+        <div class="word-display" id="word-display">—</div>
+        <p class="question-text">Do you know this word?</p>
+        <div class="button-group">
+          <button class="btn-answer know" onclick="answer(1)">I Know It</button>
+          <button class="btn-answer maybe" onclick="answer(0.5)">Not Sure</button>
+          <button class="btn-answer dont" onclick="answer(0)">Don't Know</button>
+        </div>
+        <button class="show-def-btn" id="show-def-btn" onclick="showDefinition()">Show Chinese Definition</button>
+        <div class="definition" id="definition"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="result" class="hidden">
+    <div class="dark-section">
+      <div class="container" id="result-content">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+// === DATA ===
+const POOL = [{"r": 13, "w": "you", "d": "pron.[\"你\",\"你们，您们\",\"各位\",\"大家\"]"}, {"r": 53, "w": "think", "d": "vt.[\"想\",\"思索\",\"以为\",\"看待\"]  vi.[\"思辩\",\"考虑\",\"构想\",\"回忆\"]  adj.[\"深思的\",\"供思考的\"]  n.[\"想\",\"想法\"]"}, {"r": 58, "w": "me", "d": "pron.[\"（人称代词I的宾格）我\"]  n.[\"自我\",\"自我的一部分\",\"极端自私的人\",\"[音乐]固定唱法时的E音\"]"}, {"r": 72, "w": "other", "d": "adj.[\"别的\",\"其他的\",\"（两个中的）另一个\",\"其余的\"]  pron.[\"其他的\",\"（指两个人或事物中的第二个）那个\",\"（指一组中其余的人或事物）其余的\",\"（指与说话人所在位置等相反的方向或地点）另一边\"]  n.[\"[the other]对立面；对立的事物\"]"}, {"r": 115, "w": "call", "d": "v.[\"呼唤，喊叫\",\"召唤，叫来，召集\",\"下令，命令\",\"打电话给\"]  n.[\"喊叫，大声喊\",\"电话联络\",\"必要，理由\",\"要求\"]"}, {"r": 126, "w": "three", "d": "num.[\"三\",\"三个\",\"第三（章，页等）\"]  n.[\"三岁\",\"三个人[东西]\",\"三，三个\"]  adj.[\"三的\",\"三个的\"]"}, {"r": 141, "w": "old", "d": "adj.[\"老的\",\"古老的\",\"以前的\",\"（用于指称被替代的东西）原来的\"]  n.[\"古时\"]"}, {"r": 328, "w": "morning", "d": "n.[\"早晨\",\"上午\",\"黎明\",\"早期，初期\"]"}, {"r": 368, "w": "wait", "d": "vt.& vi.[\"等候\",\"等待\",\"（尤指长期地）希望\",\"盼望\"]  vi.[\"准备妥\",\"在手边\",\"可得到\",\"可使用\"]  vt.[\"推迟，搁置，延缓\"]"}, {"r": 369, "w": "serve", "d": "vt.& vi.[\"（为…）服务\",\"任（职）\",\"提供\",\"端上\"]  vt.[\"招待\",\"（为…）工作\",\"对…有用\",\"向…供应\"]  vi.[\"适合\",\"服役\",\"供职\",\"[网球、羽毛球]发球\"]  n.[\"网球等发球\",\"发球权\",\"所发的球\"]"}, {"r": 397, "w": "class", "d": "n.[\"班\",\"等级\",\"阶级\",\"种类\"]  vt.[\"把…归入某等级，把…看作（或分类、归类）\",\"把…编入某一班级\"]  adj.[\"很好的，优秀的，出色的\"]  vi.[\"属于…类（或等级），被列为某类（或某级）\"]"}, {"r": 400, "w": "care", "d": "v.[\"关心\",\"担心\",\"照顾\",\"喜爱\"]  n.[\"照顾\",\"小心\",\"忧虑\"]"}, {"r": 569, "w": "available", "d": "adj.[\"可获得的\",\"有空的\",\"可购得的\",\"能找到的\"]"}, {"r": 632, "w": "foreign", "d": "adj.[\"外国的，外交的\",\"外来的\",\"不相干的\",\"[医]异质的\"]"}, {"r": 655, "w": "concern", "d": "vt.[\"涉及，关系到\",\"使关心，使担忧\",\"参与\"]  n.[\"关心\",\"关系，有关\",\"顾虑\",\"公司或企业\"]"}, {"r": 699, "w": "simple", "d": "adj.[\"简单的\",\"单纯的\",\"易受骗的\",\"天真的\"]  n.[\"笨蛋\",\"愚蠢的行为\",\"出身低微者\"]"}, {"r": 718, "w": "staff", "d": "n.[\"参谋\",\"全体职员\",\"管理人员\",\"权杖\"]  adj.[\"行政工作的\",\"参谋的\",\"职员的\",\"作为正式工作人员的\"]  v.[\"在…工作\",\"为…配备职员\",\"任职于\"]"}, {"r": 806, "w": "final", "d": "adj.[\"最后的，最终的\",\"决定性的\",\"不可更改的\"]  n.[\"结局\",\"决赛\",\"期末考试\",\"〈口〉（报纸的）末版\"]"}, {"r": 816, "w": "nice", "d": "adj.[\"美好的，愉快的\",\"正派的\",\"友好的，亲切的\",\"细致的\"]"}, {"r": 824, "w": "management", "d": "n.[\"管理\",\"管理人员\",\"管理技巧，处事的能力\"]"}, {"r": 963, "w": "newspaper", "d": "n.[\"报纸，报\",\"旧报纸\",\"新闻纸\"]"}, {"r": 992, "w": "fast", "d": "adj.[\"快的\",\"走得快\",\"感光快的\",\"紧的\"]  adv.[\"（比准确的时间或宣布的时间）快\",\"迅速地\",\"紧紧地\",\"彻底地\"]  vi.[\"禁食，（尤指）斋戒\"]  n.[\"禁食期，斋戒期\",\"断食，节食\"]"}, {"r": 1013, "w": "release", "d": "vt.[\"释放\",\"放开\",\"发布\",\"发行\"]  n.[\"释放，排放，解除\",\"释放令\",\"公映的新影片，发布的新闻[消息]\"]"}, {"r": 1037, "w": "freedom", "d": "n.[\"自由，自主\",\"直率\",\"特权，特许\",\"自由权\"]"}, {"r": 1060, "w": "variety", "d": "n.[\"多样\",\"种类\",\"杂耍\",\"变化，多样化\"]"}, {"r": 1138, "w": "farm", "d": "n.[\"农场，农庄\",\"农家\",\"畜牧场\",\"农田\"]  vt.[\"耕种\",\"养殖\",\"承包，包出\",\"佃出（土地）\"]  vi.[\"经营农场\"]"}, {"r": 1169, "w": "wild", "d": "adj.[\"野生的\",\"野蛮的\",\"狂热的\",\"荒凉的\"]  n.[\"荒野\",\"未开化的地方\",\"偏远地区\",\"人烟稀少的地区\"]  adv.[\"疯狂地\",\"胡乱地\"]"}, {"r": 1199, "w": "lesson", "d": "n.[\"教训，训诫\",\"功课\",\"课程，一堂课\",\"[宗]日课\"]  vt.[\"教训，训斥\",\"教课\",\"向…授课\"]"}, {"r": 1271, "w": "deny", "d": "vt.[\"拒绝\",\"拒绝承认\",\"拒绝…占有\",\"否认知情\"]"}, {"r": 1286, "w": "shoe", "d": "n.[\"鞋\",\"蹄铁\",\"（汽车轮的）制动器，煞车\",\"外胎\"]  vt.[\"为…钉蹄铁\",\"给…穿上鞋\",\"装防护物\"]"}, {"r": 1336, "w": "participate", "d": "vi.[\"参加某事\",\"分享某事\"]  vt.[\"得到或接受某部分东西\"]"}, {"r": 1358, "w": "circle", "d": "n.[\"圆\",\"圆状物\",\"一圈\",\"圈子\"]  vt.[\"圈出，包围\",\"绕…运转\"]  vi.[\"环绕，盘旋\"]"}, {"r": 1456, "w": "weather", "d": "n.[\"天气， 气象\",\"暴风雨\"]  vt.& vi.[\"晒干， 风化\"]  vt.[\"平安渡过， 挨过\",\"[地]使风化\"]"}, {"r": 1461, "w": "bear", "d": "n.[\"熊\",\"（在证券市场等）卖空的人\",\"蛮横的人\"]  vt.[\"忍受\",\"承担\",\"支撑\",\"生育\"]  vi.[\"生（孩子）\",\"结（果实）\",\"与…有关\"]  adj.[\"跌价的\",\"股票行情下跌的\",\"卖空者的\"]"}, {"r": 1488, "w": "somehow", "d": "adv.[\"以某种方式，用某种方法\",\"<非正>不知怎么地，不知道怎样，不晓得什么缘故\",\"设法，想办法，想个方法\",\"莫明其妙地\"]"}, {"r": 1519, "w": "package", "d": "vt.[\"包装\",\"把…装箱\",\"向…提出一揽子计划\"]  n.[\"包裹\",\"包装袋\",\"包装盒\",\"一组建议\"]"}, {"r": 1551, "w": "chest", "d": "n.[\"胸部，胸腔\",\"箱子\",\"金库\",\"资金\"]"}, {"r": 1581, "w": "ensure", "d": "vt.[\"确保\",\"担保获得[避免]\",\"使（某人）获得\",\"使安全\"]"}, {"r": 1583, "w": "extremely", "d": "adv.[\"极端地\",\"非常，很\",\"去\",\"绝\"]"}, {"r": 1625, "w": "crazy", "d": "adj.[\"疯狂的\",\"不理智的\",\"离奇的\",\"生气的\"]  n.[\"[俚语]疯子，怪人，政治狂人（尤指政治上持激进或极端主义态度、行为异常、不可思议的人）\"]"}, {"r": 1783, "w": "bomb", "d": "n.[\"炸弹\",\"彻底的失败\",\"[橄榄球] 长传\",\"高压贮罐\"]  vt.[\"轰炸，投弹于\"]  vi.[\"投弹\",\"[俚语] 惨败\",\"[俚语] 涂鸦\"]"}, {"r": 1810, "w": "succeed", "d": "vi.[\"成功\",\"继承\"]  vt.[\"继承，继任，继位\",\"随…之后\"]"}, {"r": 1896, "w": "gap", "d": "n.[\"缺口\",\"分歧\",\"间隔\",\"美国休闲服饰品牌\"]  vt.[\"造成缝隙\",\"使成缺口\",\"使豁裂\"]  vi.[\"豁开\",\"张开\",\"有缺口\",\"露出裂口\"]"}, {"r": 1937, "w": "tea", "d": "n.[\"茶水\",\"茶\",\"茶树\",\"午后小吃\"]  vt.[\"给…沏茶\"]  vi.[\"喝茶\"]"}, {"r": 1944, "w": "slide", "d": "vi.[\"滑落\",\"下跌\",\"打滑\",\"[棒球]滑垒\"]  vt.[\"衰落（成）\",\"逐渐降低\",\"使悄悄转动\",\"（使）快捷而悄声地移动\"]  n.[\"幻灯片\",\"降低\"]"}, {"r": 1955, "w": "tension", "d": "n.[\"紧张，不安\",\"紧张气氛\",\"[物]张力，拉力\",\"矛盾\"]  vt.[\"紧张\",\"使紧张\"]"}, {"r": 1996, "w": "mine", "d": "pron.[\"(I的所有格)我的（东西）\"]  n.[\"矿\",\"矿井\",\"地雷\",\"水雷\"]  vt.& vi.[\"在…中开采，开采\"]  vt.[\"在…中[下]布雷\",\"以地雷[水雷]炸毁\"]"}, {"r": 2070, "w": "parking", "d": "n.[\"（车辆等的）停放\",\"停车场所，停车位\"]  v.[\"停车(park的ing形式)\"]"}, {"r": 2153, "w": "confront", "d": "vt.[\"面对\",\"使面对面，使对质\",\"碰到，遇到\",\"比较\"]"}, {"r": 2176, "w": "silver", "d": "n.[\"银\",\"银币\",\"银制品\",\"银色\"]  adj.[\"银制的\",\"像银的\",\"银色的\",\"银白色的\"]  vt.[\"（在某物上）镀银\",\"使具有银色光泽，使变成银色\"]"}, {"r": 2263, "w": "cake", "d": "n.[\"蛋糕\",\"糕饼\",\"块状物\",\"沉积物\"]  vt.& vi.[\"（使）结块\",\"（使）胶\",\"涂厚厚的一层\"]"}, {"r": 2306, "w": "fiber", "d": "n.[\"光纤\",\"（织物的）质地\",\"纤维，纤维物质\"]"}, {"r": 2387, "w": "constitutional", "d": "adj.[\"宪法的，符合宪法的\",\"本质的\",\"体质上的\",\"保健的\"]  n.[\"保健运动\",\"保健散步\"]"}, {"r": 2395, "w": "proceed", "d": "vi.[\"进行\",\"前进\",\"（沿特定路线）行进\",\"（尤指打断后）继续说\"]  n.[\"收入，获利\"]"}, {"r": 2429, "w": "Olympic", "d": "adj.[\"奥林匹斯山的，奥林匹亚的；奥林匹克的\"]  n.[\"奥林匹克运动会比赛项目\",\"[用复数][the Olympic] = Olympic Games\"]"}, {"r": 2434, "w": "tight", "d": "adj.[\"紧的，牢固的\",\"绷紧的\",\"不漏的\",\"密集的，紧凑的\"]  adv.[\"紧紧地\",\"牢固地\"]"}, {"r": 2488, "w": "mainly", "d": "adv.[\"大部分地\",\"主要地\",\"基本上\"]"}, {"r": 2500, "w": "working", "d": "adj.[\"（涉及）工作的\",\"（人）有工作的\",\"（时间）用于工作上的\",\"（想法等）可作为基础的\"]  v.[\"（使）工作( work的现在分词)\",\"（使）运作\",\"运转\",\"（使）产生效果\"]  n.[\"工作\",\"活动\",\"制作\",\"操纵\"]"}, {"r": 2563, "w": "convert", "d": "vt.[\"（使）转变\",\"使皈依\",\"兑换，换算\",\"侵占\"]  vi.[\"经过转变\",\"被改变\",\"[橄榄球] 触地得分后得附加分\"]  n.[\"皈依者\",\"改变宗教信仰者\"]"}, {"r": 2581, "w": "vital", "d": "adj.[\"维持生命所必需的\",\"至关重要的\",\"生死攸关的\",\"生气勃勃的\"]"}, {"r": 2613, "w": "buyer", "d": "n.[\"买主\",\"买方\",\"采购员\"]"}, {"r": 2650, "w": "economist", "d": "n.[\"经济学家，经济专家\"]"}, {"r": 2760, "w": "girlfriend", "d": "n.[\"女朋友\",\"女性朋友\"]"}, {"r": 2803, "w": "absolute", "d": "adj.[\"绝对的，完全的\",\"不受任何限制[约束]的\",\"无条件的\",\"有无上权力或权威的\"]  n.[\"绝对\",\"绝对事物\"]"}, {"r": 2857, "w": "devote", "d": "vt.[\"把…奉献（给），把…专用（于）\",\"奉献\"]"}, {"r": 2868, "w": "acid", "d": "adj.[\"酸味的\",\"尖刻的\",\"酸的\",\"酸性的\"]  n.[\"<化>酸\",\"酸味物质\"]"}, {"r": 2936, "w": "recruit", "d": "n.[\"新兵\",\"（机构中的）新成员\",\"新学生\"]  vt.[\"招聘，征募\",\"吸收某人为新成员\",\"动员…（提供帮助）\",\"雇用\"]  vi.[\"征募新兵\",\"得到补充，得到补偿\",\"恢复健康\"]"}, {"r": 2959, "w": "formula", "d": "n.[\"公式，准则\",\"客套话\",\"方案\",\"婴儿食品\"]"}, {"r": 3003, "w": "remark", "d": "n.[\"注意，观察\",\"话语\",\"评论，谈论，\"]  vt.& vi.[\"评论\",\"觉察\"]"}, {"r": 3011, "w": "invent", "d": "vt.[\"发明，创造\",\"虚构\"]"}, {"r": 3049, "w": "bishop", "d": "n.[\"（基督教某些教派管辖大教区的）主教\",\"（国际象棋的）象\",\"香甜葡萄酒\"]"}, {"r": 3142, "w": "plain", "d": "n.[\"平原\",\"平地\",\"[纺织业]平针\",\"朴实无华的东西\"]  adj.[\"平的\",\"素的\",\"清晰的\",\"相貌平平的\"]  adv.[\"清楚地，明白地\",\"平易地\",\"[用以加强语气]显然\",\"完全地\"]  vi.[\"发牢骚\",\"诉苦\"]"}, {"r": 3252, "w": "convict", "d": "vt.[\"宣判有罪\",\"证明…有罪\",\"使知罪\",\"定…的罪\"]  n.[\"罪犯\"]"}, {"r": 3276, "w": "rhetoric", "d": "n.[\"修辞学\",\"辩论法，雄辩术\",\"华丽的文词\",\"花言巧语\"]"}, {"r": 3305, "w": "doctrine", "d": "n.[\"教条，教义\",\"法律原则\",\"声明\",\"古语] 所教的东西，教育\"]"}, {"r": 3350, "w": "compensation", "d": "n.[\"补偿，赔偿\",\"修正\",\"补救办法\"]"}, {"r": 3358, "w": "belly", "d": "n.[\"肚子，腹部\",\"（物体的）圆形或凸起部份\",\"胃口，食欲\",\"腹部…形的\"]  vt.& vi.[\"膨胀\"]"}, {"r": 3500, "w": "equation", "d": "n.[\"方程式\",\"等式\",\"相等\",\"[化学] 反应式\"]"}, {"r": 3512, "w": "gathering", "d": "n.[\"聚集\",\"集会\",\"采集\",\"积累\"]  v.[\"（使）聚集( gather的现在分词)\",\"集合\",\"推断\",\"了解\"]"}, {"r": 3518, "w": "dawn", "d": "n.[\"黎明，拂晓\",\"开端\",\"醒悟\"]  vi.[\"破晓，（天）刚亮\",\"开始出现\",\"变得明朗\"]  vt.[\"（开始）被理解，被领悟\",\"被看清，被想到\"]"}, {"r": 3557, "w": "divine", "d": "adj.[\"神的， 天赐的\",\"极好的\",\"神圣的\"]  vt.&vi.[\"占卜，预言\",\"猜测， 预测\",\"（用丫形杖）探测（地下水）\"]  n.[\"牧师\",\"神学家\"]"}, {"r": 3604, "w": "parental", "d": "adj.[\"父母的\",\"亲代的\",\"[生]（杂种）亲本的\",\"作为来源[渊源]的\"]"}, {"r": 3608, "w": "sword", "d": "n.[\"剑，刀\",\"武力，战争\",\"兵权，权力\"]"}, {"r": 3646, "w": "wolf", "d": "n.[\"狼\",\"贪婪的人\",\"有害的幼虫\"]  vt.[\"狼吞虎咽\"]"}, {"r": 3757, "w": "entrepreneur", "d": "n.[\"<法>企业家\",\"主办人\",\"承包人\"]"}, {"r": 3794, "w": "cocaine", "d": "n.[\"<药>可卡因\",\"古柯碱\"]"}, {"r": 3832, "w": "liquid", "d": "n.[\"液体\",\"流音\"]  adj.[\"液体的\",\"清澈的\",\"（声音）流畅的\",\"易转换成现款的\"]"}, {"r": 3846, "w": "filter", "d": "n.[\"滤波器\",\"滤光器\",\"滤色镜\",\"[化] 过滤器\"]  vi.[\"过滤\",\"透过\",\"渗透\"]  vt.[\"过滤\",\"滤除\"]"}, {"r": 3901, "w": "behalf", "d": "n.[\"利益\",\"维护\",\"支持\"]"}, {"r": 3985, "w": "journalism", "d": "n.[\"新闻业\",\"新闻学\",\"新闻工作\",\"报章杂志\"]"}, {"r": 4011, "w": "builder", "d": "n.[\"建设者，建筑者\",\"创建者\",\"经营建筑业者\",\"增洁剂，促净剂\"]"}, {"r": 4039, "w": "cure", "d": "vt.[\"治愈\",\"矫正\",\"解决\",\"消除\"]  vi.[\"受治疗\",\"被加工处理\"]  n.[\"治愈\",\"药物\",\"疗法\",\"措施\"]"}, {"r": 4067, "w": "eligible", "d": "adj.[\"合适的\",\"在（法律上或道德上）合格的\",\"有资格当选的\",\"称心如意的\"]  n.[\"合格者\",\"合适者\",\"称心如意的人\",\"合乎条件的人（或东西）\"]"}, {"r": 4158, "w": "offender", "d": "n.[\"罪犯\",\"得罪人的人\",\"犯规者\",\"妨害…的人（或事物）\"]"}, {"r": 4200, "w": "sexuality", "d": "n.[\"性别，有性状态\",\"性欲\",\"性生活\",\"性兴趣\"]"}, {"r": 4223, "w": "ha", "d": "int.[\"（表示惊讶、欢乐、怀疑等）哈，嘿\"]"}, {"r": 4241, "w": "marble", "d": "n.[\"大理石\",\"大理石制品\",\"弹子游戏\",\"理智，常识\"]  adj.[\"大理石的\",\"冷酷无情的\",\"有大理石花纹的\"]  v.[\"把（书边）弄上大理石花纹\"]"}, {"r": 4258, "w": "transmit", "d": "vt.[\"传输\",\"传送，传递\",\"发射\",\"传染\"]  vi.[\"发送信号\"]"}, {"r": 4333, "w": "bronze", "d": "n.[\"青铜\",\"青铜色\",\"铜牌\",\"青铜艺术品\"]  adj.[\"深红棕色的，青铜色的\",\"青铜制的\"]  vt.[\"镀青铜于\"]  vi.[\"变成青铜色，被晒黑\"]"}, {"r": 4342, "w": "stereotype", "d": "n.[\"陈规旧习，旧规矩\",\"固定的形式\",\"铅版\",\"铅版制版法，铅板印刷\"]  vt.[\"使成陈规\",\"把…浇铸成铅版\",\"使用铅版\",\"使固定\"]"}, {"r": 4362, "w": "bomber", "d": "n.[\"轰炸机\",\"投弹手\"]"}, {"r": 4386, "w": "congregation", "d": "n.[\"（教堂里的）会众\",\"集会\",\"集合\",\"人群\"]"}, {"r": 4430, "w": "sailor", "d": "n.[\"水手，海员\",\"驾船人\"]"}, {"r": 4515, "w": "bass", "d": "n.[\"低音歌唱家，低音乐器\",\"[鱼]欧洲鲈鱼\",\"[植]椴树，椴属树木，美洲椴木\"]  adj.[\"低音的\"]"}, {"r": 4650, "w": "compile", "d": "vt.[\"汇编\",\"编辑\",\"编制\",\"编译\"]"}, {"r": 4685, "w": "pronounce", "d": "vt.& vi.[\"发音，读\"]  vt.[\"宣布，宣称\",\"演讲，讲述\"]  vi.[\"宣判\"]"}, {"r": 4738, "w": "unnecessary", "d": "adj.[\"不必要的，多余的\",\"无用的，无益的\",\"无须\"]"}, {"r": 4779, "w": "holder", "d": "n.[\"支持物\",\"持有者\",\"（支票等）持有人\",\"支托（或握持）…之物\"]"}, {"r": 4811, "w": "statistically", "d": "adv.[\"统计上地，统计地\"]"}, {"r": 4832, "w": "sadness", "d": "n.[\"悲哀，忧伤，忧愁，悲哀\",\"令人悲哀或忧伤的事物\",\"愁眉苦脸，心境恶劣，心情恶劣\",\"认真\"]"}, {"r": 4906, "w": "scrap", "d": "n.[\"废料\",\"残余物\",\"小片\",\"吵架\"]  vt.[\"废弃\",\"取消\",\"抛弃\",\"报废\"]  vi.[\"吵架，打架\"]  adj.[\"废弃的\",\"零星的\",\"剩余的\",\"由零碎（或废料）组成的\"]"}, {"r": 4912, "w": "academy", "d": "n.[\"专科学校\",\"学会，学院\",\"一般的高等教育\",\"私立学校，学术团体\"]"}, {"r": 5000, "w": "quantum", "d": "n.[\"[物]量子\",\"定量，总量\",\"美国昆腾公司（世界领先的硬盘生产商）\"]"}, {"r": 5055, "w": "skate", "d": "vt.& vi.[\"溜冰，滑冰\"]  n.[\"溜冰鞋\"]"}, {"r": 5063, "w": "intersection", "d": "n.[\"横断，横切\",\"交叉，相交\",\"交叉点，交叉线\",\"[数]交集\"]"}, {"r": 5064, "w": "reconciliation", "d": "n.[\"和解，调停\",\"一致\",\"服从，顺从\",\"和谐\"]"}, {"r": 5148, "w": "bout", "d": "n.[\"拳击（或摔跤）比赛\",\"一段（工作）\",\"（尤指坏事的）一通\",\"（疾病的）发作\"]"}, {"r": 5204, "w": "manifest", "d": "vt.[\"显示，表明\",\"证明\",\"使显现\"]  adj.[\"明白的，明显的\"]  n.[\"货单，旅客名单\"]"}, {"r": 5216, "w": "sufficiently", "d": "adv.[\"足够地，充分地\",\"十分，相当\"]"}, {"r": 5228, "w": "petition", "d": "n.[\"请愿书，\",\"请愿，请求\",\"上诉状\"]  vi.[\"祈求，请求\",\"请愿\"]  vt.[\"（向法庭）申诉\"]"}, {"r": 5327, "w": "accord", "d": "n.[\"协议\",\"条约\",\"（色彩的）协调\",\"和解协议\"]  vt.[\"给予\",\"使和谐一致\",\"使符合\",\"使适合\"]  vi.[\"符合\",\"一致\"]"}, {"r": 5351, "w": "controller", "d": "n.[\"管理者\",\"控制者\",\"（机器的）控制器\",\"（公司的）财务总管\"]"}, {"r": 5393, "w": "freeway", "d": "n.[\"高速公路\",\"快车道\"]"}, {"r": 5466, "w": "saddle", "d": "n.[\"马鞍\",\"（自行车或摩托车的）车座\",\"鞍形架，鞍状物\",\"（动物的）脊肉\"]  vt.& vi.[\"给（马）装鞍\"]  vt.[\"使承担\"]"}, {"r": 5485, "w": "lazy", "d": "adj.[\"懒惰的\",\"没精打采的\",\"慢吞吞的\"]"}, {"r": 5533, "w": "exclaim", "d": "vt.& vi.[\"呼喊\",\"惊叫\",\"大声说\"]"}, {"r": 5541, "w": "conditioning", "d": "n.[\"条件作用，训练，健身训练\"]"}, {"r": 5579, "w": "registered", "d": "adj.[\"注册的\",\"登记过的\",\"已挂号的\",\"（动物）附有血统证明的\"]  v.[\"记录\",\"登记\",\"注册\",\"显出\"]"}, {"r": 5657, "w": "bureaucratic", "d": "adj.[\"官僚的，官僚主义的，官僚作风的\"]"}, {"r": 5689, "w": "entertaining", "d": "adj.[\"有趣的，娱乐的，使人愉快的\"]  v.[\"款待，招待( entertain的现在分词 )\",\"使欢乐\",\"使娱乐\",\"抱有\"]"}, {"r": 5711, "w": "clergy", "d": "n.[\"（尤指基督教堂内的）牧师，教士\",\"〈废〉学问\"]"}, {"r": 5714, "w": "sustained", "d": "adj.[\"持久的，持续的\"]  v.[\"维持( sustain的过去式和过去分词 )\",\"支撑\",\"忍受\",\"长期保持\"]"}, {"r": 5849, "w": "decorative", "d": "adj.[\"装饰的\",\"装潢用的\"]"}, {"r": 5938, "w": "referendum", "d": "n.[\"公民投票\",\"外交官请示书\",\"全民公决\",\"请示书\"]"}, {"r": 5954, "w": "territorial", "d": "adj.[\"领土的\",\"区域的\",\"土地的\",\"地方的\"]  n.[\"地方自卫队士兵\"]"}, {"r": 5981, "w": "pending", "d": "prep.[\"直到，在等待…期间\"]  adj.[\"未决的\",\"未定的\",\"待定的\",\"即将发生的\"]"}, {"r": 6017, "w": "commuter", "d": "n.[\"（远距离）上下班往返的人\"]"}, {"r": 6113, "w": "camel", "d": "n.[\"骆驼\"]"}, {"r": 6180, "w": "tester", "d": "n.[\"测试员\",\"检测器\",\"华盖\"]"}, {"r": 6182, "w": "vigorously", "d": "adv.[\"精神旺盛地，活泼地\",\"大力\",\"蓬蓬勃勃\",\"猛力\"]"}, {"r": 6224, "w": "cafeteria", "d": "n.[\"自助餐厅\"]"}, {"r": 6255, "w": "Freeman", "d": "[\"弗里曼（姓氏，男子名）\"]"}, {"r": 6268, "w": "co-author", "d": "n.[\"合著者\"]  vt.[\"合著\"]"}, {"r": 6290, "w": "underway", "d": "adj.[\"在进行中的\",\"起步的\",\"[航]在航行中的\"]  adv.[\"进行中\"]  n.[\"在航\",\"水底通道\"]"}, {"r": 6342, "w": "subscriber", "d": "n.[\"用户，订户\",\"<英>（慈善机关等的）定期捐款者\",\"预约者\",\"签署者\"]"}, {"r": 6395, "w": "mural", "d": "n.[\"（通常指大型的）壁画\"]  adj.[\"墙壁的，墙的\",\"画在或者挂在墙上的\"]"}, {"r": 6473, "w": "ignorant", "d": "adj.[\"无知的，愚昧的\",\"由无知引起的\",\"无学识的\"]"}, {"r": 6511, "w": "arsenal", "d": "n.[\"兵工厂，军火库\"]"}, {"r": 6611, "w": "anonymity", "d": "n.[\"匿名\",\"作者不详\",\"匿名者\",\"无名者\"]"}, {"r": 6665, "w": "cavity", "d": "n.[\"腔，洞\",\"蛀牙，龋洞\"]"}, {"r": 6685, "w": "deteriorate", "d": "vt.[\"使恶化\"]  vi.[\"恶化，变坏\"]"}, {"r": 6686, "w": "professionally", "d": "adv.[\"专业地，内行地\"]"}, {"r": 6690, "w": "feasible", "d": "adj.[\"可行的\",\"可用的\",\"可实行的\",\"可能的\"]"}, {"r": 6746, "w": "Methodist", "d": "n.[\"卫理公会教徒\",\"方法论者\"]  adj.[\"卫理公会教派的\"]"}, {"r": 6769, "w": "masterpiece", "d": "n.[\"杰作，名作\",\"杰出的事\"]"}, {"r": 6823, "w": "constrain", "d": "vt.[\"强迫\",\"强使\",\"限制\",\"约束\"]"}, {"r": 6839, "w": "surf", "d": "n.[\"海浪\",\"拍岸碎浪\"]  vi.[\"冲浪\",\"（互联网上）冲浪\"]"}, {"r": 6911, "w": "geometry", "d": "n.[\"几何学\",\"几何形状\",\"几何图形\",\"几何学著作\"]"}, {"r": 6921, "w": "breach", "d": "n.[\"破坏\",\"破裂\",\"缺口\",\"违背\"]  vt.[\"攻破\",\"破坏，违反\"]"}, {"r": 6945, "w": "lobbying", "d": "vi.[\"为了支持或抵制某项特定目标游说（lobby的现在分词形式）\"]"}, {"r": 7095, "w": "flicker", "d": "v.[\"闪烁\",\"飘扬，摆动\",\"昏倒\"]  n.[\"闪烁\",\"闪光\",\"电影\",\"假装昏倒的乞丐\"]"}, {"r": 7132, "w": "divorced", "d": "adj.[\"离婚的\",\"分开的\",\"不相干的\",\"脱离的\"]  v.[\"与…离婚(divorce的过去式和过去分词)\",\"分离\",\"与某人离婚，判某人离婚\"]"}, {"r": 7142, "w": "sic", "d": "adv.[\"〈外〉原文如此\"]  vt.[\"（也作sick）猛烈攻击，进攻\",\"唆使\"]"}, {"r": 7193, "w": "pinpoint", "d": "vt.[\"确定，准确地指出\",\"精准定位\"]  n.[\"针尖，尖头\",\"精确位置\",\"极小之物\"]  adj.[\"精确的，精准的\",\"详尽的\"]"}, {"r": 7300, "w": "memorize", "d": "vt.[\"记住，熟记\",\"[计算机科学] 存储，记忆\"]"}, {"r": 7352, "w": "heroine", "d": "n.[\"女主角\",\"女英雄\",\"女杰出人物\"]"}, {"r": 7361, "w": "cosmetic", "d": "n.[\"化妆品\",\"美发油，发蜡\",\"装饰品\",\"美容术\"]  adj.[\"化妆用的\",\"美容的\",\"装点门面的\",\"表面的\"]"}, {"r": 7368, "w": "lateral", "d": "adj.[\"侧面的\",\"横向的\",\"[语]边音的\"]  n.[\"侧部的东西\",\"边音\"]"}, {"r": 7393, "w": "respectful", "d": "adj.[\"有礼貌的\",\"恭敬的\",\"殷勤的\",\"穆\"]"}, {"r": 7471, "w": "mixing", "d": "n.[\"混合，混频\"]  v.[\"混合( mix的现在分词 )\",\"（使）结交\",\"相容\",\"平安相处\"]"}, {"r": 7475, "w": "flare", "d": "vi.[\"闪耀，闪光\",\"燃烧\",\"突然发怒\",\"向外张开\"]  vt.[\"使闪耀\",\"使张开\",\"用光发出信号\",\"使外倾\"]  n.[\"闪光\",\"爆发\",\"反射\",\"太阳耀斑\"]"}, {"r": 7558, "w": "dazzling", "d": "adj.[\"耀眼的，光彩夺目的\",\"灿烂的\"]  v.[\"（使）眼花(dazzle的ing形式)\"]"}, {"r": 7584, "w": "rooftop", "d": "n.[\"屋顶\"]"}, {"r": 7664, "w": "mint", "d": "n.[\"薄荷\",\"铸币厂\",\"大量，尤指钱\",\"来源\"]  vt.[\"铸造，铸币\",\"发明或创造\"]  adj.[\"崭新的，完美的\",\"未损坏的\"]"}, {"r": 7669, "w": "classified", "d": "adj.[\"保密的，（信息）归入密级的\",\"分类的，归类的\"]  v.[\"分类( classify的过去式和过去分词)\"]"}, {"r": 7699, "w": "antiquity", "d": "n.[\"古老，古代\",\"古迹，古物\",\"古人\",\"古代的风俗习惯\"]"}, {"r": 7754, "w": "covert", "d": "adj.[\"隐蔽的，不公开的，秘密的\",\"偷偷摸摸的\",\"在丈夫保护下的\"]  n.[\"遮蔽处，树丛\"]"}, {"r": 7774, "w": "disarm", "d": "vi.[\"裁军\",\"解除武装\",\"放下武器\"]  vt.[\"使缴械\",\"使息怒\",\"解除武装\",\"缓和\"]"}, {"r": 7802, "w": "chuck", "d": "n.[\"（牛）颈部到肩部的肉\",\"咕咕（呼鸡声），砸砸（呼马声）\",\"抛出\",\"亲爱的\"]  vt.[\"[机械工程]用卡盘夹紧\",\"（口语）抛出，扔出\",\"咕咕（咯咯、嘟嘟）地叫\",\"（美国）辞职\"]"}, {"r": 7867, "w": "insignificant", "d": "adj.[\"不重要的\",\"微小的\",\"毫无意义的\",\"不足道\"]"}, {"r": 7868, "w": "high-risk", "d": "adj.[\"高危险度的，充满危险的\"]"}, {"r": 7902, "w": "admittedly", "d": "adv.[\"公认地\"]"}, {"r": 7930, "w": "ancestral", "d": "adj.[\"祖先的\",\"与祖先有关的\",\"祖宗传下的\"]"}, {"r": 7995, "w": "refrain", "d": "vt.[\"抑制，克制\"]  n.[\"（诗歌的）叠句，副歌\",\"经常重复的评价（或抱怨）\"]  vi.[\"忍耐，节制\"]"}, {"r": 8132, "w": "hound", "d": "n.[\"猎狗，猎犬\",\"卑劣的人\",\"[动]角鲨，星鲨，弓鳍鱼\",\"有…迷[瘾]的人\"]  vt.[\"追猎\",\"不断侵扰，烦扰\",\"激励\",\"嗾使，煽动\"]"}, {"r": 8137, "w": "camper", "d": "n.[\"露营者，野营者\",\"（装有露营设备的）露营车\",\"房车\"]"}, {"r": 8140, "w": "paddle", "d": "n.[\"[航海] 宽叶短桨\",\"桨状物\",\"搅拌金矿的铁器，类似铁铲的工具\",\"洗衣板，扁板\"]  vi.[\"涉水\",\"趟水\",\"用桨划船\",\"荡桨\"]  vt.[\"用浆划动，用船桨推动（船只）\",\"搬运，运输\",\"拍打\",\"搅拌\"]"}, {"r": 8161, "w": "prod", "d": "n.[\"刺针，刺棒\",\"刺激，激励\"]  vt.[\"刺激\",\"促使…行动\",\"（用手指或尖物）戳\",\"捅\"]"}, {"r": 8162, "w": "sliding", "d": "adj.[\"滑行的，变化的\"]  v.[\"滑动，滑行( slide的现在分词 )\",\"滑落\",\"下跌\",\"打滑\"]"}, {"r": 8345, "w": "footing", "d": "n.[\"立场，基础\",\"关系，交情\",\"立足点\"]"}, {"r": 8369, "w": "flier", "d": "n.[\"飞行器驾驶员\",\"动作敏捷的人或动物\",\"速度很快的车辆\",\"（产品的）宣传单\"]"}, {"r": 8387, "w": "dismal", "d": "adj.[\"阴沉的，惨淡的，凄凉的\",\"忧郁的\"]  n.[\"低落的情绪\",\"<美>沼泽\"]"}, {"r": 8533, "w": "modernist", "d": "n.[\"现代主义者，现代派\",\"现代主义艺术家\"]"}, {"r": 8584, "w": "marketer", "d": "n.[\"市场商人\",\"市场营销人员\",\"<美>在市场中买卖的人\"]"}, {"r": 8665, "w": "bathtub", "d": "n.[\"浴缸，澡盆\"]"}, {"r": 8692, "w": "bulge", "d": "n.[\"膨胀\",\"凸出部分\",\"暴涨，突增\"]  v.[\"膨胀\",\"凸出\",\"急增\"]"}, {"r": 8719, "w": "aggravate", "d": "vt.[\"加重，使恶化\",\"使恼火\",\"激怒\"]"}, {"r": 8730, "w": "proprietary", "d": "adj.[\"专有的，专利的\",\"所有（人）的\",\"（商品）专卖的\"]  n.[\"所有权，所有物\",\"所有人\",\"专卖药品\",\"独家制造（及销售）的产品\"]"}, {"r": 8759, "w": "tidy", "d": "adj.[\"整洁的，整齐的\",\"（数量）相当大的\",\"相当好的\",\"健康的\"]  n.[\"盛零碎物品的容器\",\"椅子的背罩\"]  vt.& vi.[\"使整洁\",\"弄整齐\",\"使有条理\",\"整理，收拾\"]"}, {"r": 8786, "w": "presumption", "d": "n.[\"推测，设想\",\"放肆，傲慢\",\"<律>推定\"]"}, {"r": 8903, "w": "unification", "d": "n.[\"统一，联合\",\"一致\"]"}, {"r": 8909, "w": "savage", "d": "adj.[\"未开化的\",\"野蛮的\",\"凶猛的\",\"残忍的\"]  vt.[\"（动物）凶狠地攻击（或伤害）\",\"残害\",\"猛烈批评\",\"激烈抨击\"]  n.[\"未开化的人，野蛮人\",\"野兽\",\"<美>有拘捕狂的警察\"]"}, {"r": 8960, "w": "poisonous", "d": "adj.[\"有毒的\",\"有害的\",\"恶意的\",\"<口>讨厌的\"]"}, {"r": 8992, "w": "clam", "d": "n.[\"蚌，蛤\",\"〈美口〉沉默寡言的人\",\"钳子\",\"〈美俚〉银币\"]  v.[\"（在沙滩上）挖蛤\",\"〈美俚〉嘴紧\",\"奏出（唱出）错音\"]"}, {"r": 9005, "w": "venerable", "d": "adj.[\"令人尊重的\",\"庄严的，珍贵的\",\"副主教\"]"}, {"r": 9077, "w": "martini", "d": "n.[\"（一杯）马丁尼酒\"]"}, {"r": 9133, "w": "ivy", "d": "n.[\"[植]常春藤\"]  adj.[\"常春藤联盟的\"]"}, {"r": 9144, "w": "dissatisfied", "d": "adj.[\"感到不满的，不满意的，不高兴的\",\"显出不满的\"]  v.[\"使不满意\"]"}, {"r": 9185, "w": "thoughtfully", "d": "adv.[\"沉思地\",\"深虑地\",\"亲切地\",\"体贴地\"]"}, {"r": 9214, "w": "fledgling", "d": "n.[\"（刚学会飞的）幼鸟\",\"无经验的人\",\"乳臭小儿\"]  adj.[\"刚开始的\",\"无经验的\"]"}, {"r": 9268, "w": "Belgian", "d": "n.[\"比利时人\"]  adj.[\"比利时的\"]"}, {"r": 9279, "w": "cutback", "d": "n.[\"削减，缩减\",\"（电影等）倒叙\",\"[园]剪枝\",\"回冲浪峰\"]"}, {"r": 9326, "w": "cubicle", "d": "n.[\"小卧室，斗室\"]"}, {"r": 9377, "w": "adopted", "d": "adj.[\"被收养的，被采用的\"]  v.[\"采用( adopt的过去式和过去分词 )\",\"收养\",\"正式接受\",\"吸收（外来词语）\"]"}, {"r": 9384, "w": "confiscate", "d": "vt.[\"没收\",\"充公\",\"查抄\",\"征用\"]  adj.[\"被没收的，被充公的\",\"被征用的\"]"}, {"r": 9417, "w": "defeated", "d": "v.[\"击败( defeat的过去式和过去分词 )\",\"战胜\",\"挫败\",\"使困惑\"]"}, {"r": 9508, "w": "proclamation", "d": "n.[\"宣布，公布\",\"公告，布告\",\"宣言书\"]"}, {"r": 9515, "w": "updated", "d": "adj.[\"最新的\",\"现代化的\",\"适时的\",\"校正的\"]  v.[\"更新，使现代化( update的过去式和过去分词 )\",\"向…提供最新信息\"]"}, {"r": 9541, "w": "biased", "d": "adj.[\"有偏见的\",\"有偏的\",\"结果偏倚的\"]  v.[\"使存偏见(bias的过去式和过去分词)\"]"}, {"r": 9617, "w": "ancestry", "d": "n.[\"<集合词>祖先\",\"世家，名门\",\"[生]系谱\",\"血统\"]"}, {"r": 9622, "w": "cohesion", "d": "n.[\"凝聚，内聚\",\"（各部的）结合\",\"[力]内聚力\",\"[植]连着\"]"}, {"r": 9788, "w": "predatory", "d": "adj.[\"掠夺成性的\",\"食肉的\",\"捕食生物的\"]"}, {"r": 9806, "w": "construe", "d": "vt.[\"分析\",\"解释\",\"口译\"]"}, {"r": 9828, "w": "prerequisite", "d": "n.[\"先决条件，前提，必要条件\"]  adj.[\"必须先具备的，必要的\",\"先决条件的\"]"}, {"r": 9873, "w": "meticulous", "d": "adj.[\"谨小慎微的\",\"过度重视细节的\"]"}, {"r": 9887, "w": "blah", "d": "n.[\"废话\",\"空谈\",\"胡扯\",\"浮夸的文章\"]  adj.[\"无聊的\",\"枯燥的\"]  int.[\"废话\"]"}, {"r": 9891, "w": "realistically", "d": "adv.[\"现实地\",\"实际地\",\"逼真地\"]"}, {"r": 9893, "w": "backseat", "d": "n.[\"后座，次要位置\"]"}, {"r": 9974, "w": "pertaining", "d": "n.[\"与…有关系的，附属…的，为…固有的(to)\"]  v.[\"关于( pertain的现在分词 )\",\"有关\",\"存在\",\"适用\"]"}, {"r": 9978, "w": "titanium", "d": "n.[\"<化>钛\"]"}, {"r": 10026, "w": "contextual", "d": "adj.[\"文脉上的，前后关系的\"]"}, {"r": 10120, "w": "recurrent", "d": "adj.[\"复发的，复现的\",\"周期性的，经常发生的\",\"回归的\",\"循环的\"]"}, {"r": 10276, "w": "squid", "d": "n.[\"乌贼，墨鱼\",\"鱿鱼\"]"}, {"r": 10318, "w": "touring", "d": "n.[\"转动，旋转\"]"}, {"r": 10351, "w": "decry", "d": "vt.[\"<正>公开反对，谴责\"]"}, {"r": 10457, "w": "fiance", "d": "n.[\"<法>未婚夫\"]"}, {"r": 10485, "w": "formative", "d": "adj.[\"形成的\",\"造型的\",\"[语]构词用的\"]  n.[\"构词要素\",\"用构词要素构成的词\"]"}, {"r": 10501, "w": "nutmeg", "d": "n.[\"[植]肉豆蔻（树）\",\"〈美〉自负不凡的蠢货\"]"}, {"r": 10504, "w": "protrude", "d": "vt.[\"使突出\",\"使伸出\"]  vi.[\"突出\",\"伸出\"]"}, {"r": 10551, "w": "modesty", "d": "n.[\"谦虚，谦逊\",\"稳重\",\"端庄\",\"朴实，质朴\"]"}, {"r": 10609, "w": "bittersweet", "d": "adj.[\"又苦又甜的，苦乐参半的\",\"蜀羊泉\",\"白英\"]"}, {"r": 10610, "w": "delta", "d": "n.[\"希腊语字母表第四字母δ\",\"（河流的）三角洲\",\"[数]变量增量\"]"}, {"r": 10658, "w": "bearer", "d": "n.[\"持票人\",\"送信人\",\"搬运工人\"]"}, {"r": 10685, "w": "assemblage", "d": "n.[\"装配\",\"聚集\",\"（聚集在一起的）一堆东西\",\"组合成的艺术品\"]"}, {"r": 10769, "w": "spirited", "d": "adj.[\"精力充沛的，生机勃勃\",\"激烈的\"]  v.[\"spirit的过去式和过去分词\"]"}, {"r": 10781, "w": "gallop", "d": "n.[\"（马等）疾驰，飞奔\",\"（比喻）飞快\"]  vt.& vi.[\"（使马）飞驰\",\"飞速传递\"]  vi.[\"快速做[说]某事\"]"}, {"r": 10803, "w": "instrumentation", "d": "n.[\"使用仪器，装设仪器\",\"乐器法\",\"乐曲研究\",\"手段\"]"}, {"r": 10898, "w": "weaving", "d": "v.[\"编，织，织成( weave的现在分词 )\",\"编排\",\"杜撰\",\"（把…）编成\"]"}, {"r": 10940, "w": "stow", "d": "vt.[\"装，装载\",\"收藏\",\"使暂停\",\"堆装\"]"}, {"r": 11094, "w": "cinematic", "d": "adj.[\"电影的，影片的\"]"}, {"r": 11123, "w": "transmitted", "d": "v.[\"发射，播送，广播( transmit的过去式和过去分词 )\",\"传播\",\"传导\",\"传（热、声等）\"]"}, {"r": 11129, "w": "indulgence", "d": "n.[\"沉溺\",\"迁就，宽容\",\"嗜好\",\"溺爱，放纵\"]"}, {"r": 11152, "w": "tundra", "d": "n.[\"（多数位于北极圈的）冻土带\",\"苔原\",\"冻原\",\"寒漠\"]"}, {"r": 11243, "w": "aperture", "d": "n.[\"孔，洞\",\"（照相机，望远镜等的）光圈\",\"孔径\",\"隙缝\"]"}, {"r": 11247, "w": "subdue", "d": "vt.[\"征服\",\"克制\",\"制服\"]"}, {"r": 11257, "w": "trump", "d": "n.[\"王牌，法宝\",\"有效手段\",\"<古，诗>喇叭，号声\",\"<口>好人\"]  vt.[\"打出王牌赢\",\"胜过\"]  vi.[\"出王牌\",\"捏造，编造\",\"吹喇叭\"]"}, {"r": 11296, "w": "overtly", "d": "adv.[\"明显地，公然\",\"<律>蓄意地\"]"}, {"r": 11315, "w": "homestead", "d": "n.[\"家宅，宅地\",\"农场\"]"}, {"r": 11320, "w": "registry", "d": "n.[\"记录，登记\",\"登记处，挂号处\",\"记录簿\",\"船舶的国籍\"]"}, {"r": 11362, "w": "calculus", "d": "n.[\"[医]结石，石，积石，牙垢\",\"[数]运算，演算，微积分（学）\"]"}, {"r": 11363, "w": "mistaken", "d": "adj.[\"（人）弄错的，理解错误的\",\"（行动、想法、判断等）错误的\",\"被误解的\"]  v.[\"弄错，误解(mistake的过去分词)\",\"认不出\",\"误会\",\"误解\"]"}, {"r": 11392, "w": "fiasco", "d": "n.[\"彻底失败，惨败\"]"}, {"r": 11438, "w": "intravenous", "d": "adj.[\"进入静脉的\",\"静脉注射的\"]"}, {"r": 11471, "w": "twisting", "d": "n.[\"翘曲，扭曲\"]  v.[\"扭，搓，缠绕（ twist的现在分词 ）\"]  adj.[\"缠绕的\",\"曲折的\",\"转动的\"]"}, {"r": 11688, "w": "kissing", "d": "adj.[\"接吻的\"]  n.[\"开压边（内）浇口\"]  v.[\"吻( kiss的现在分词 )\",\"轻拂，轻触\"]"}, {"r": 11710, "w": "diva", "d": "n.[\"歌剧中的女主角\",\"主要女歌手\",\"著名女歌唱家\"]"}, {"r": 11744, "w": "appraise", "d": "vt.[\"估价\",\"估计\",\"估量\",\"评价，鉴定\"]"}, {"r": 11759, "w": "vindicate", "d": "vt.[\"维护\",\"证明…无辜\",\"证明…正确\",\"为…辩护\"]"}, {"r": 11833, "w": "custard", "d": "n.[\"蛋奶糊，牛奶沙司，蛋羹\"]"}, {"r": 11846, "w": "infuriate", "d": "vt.[\"使大怒，激怒\"]  adj.[\"狂怒的\"]"}, {"r": 11853, "w": "elitist", "d": "adj.[\"优秀人才的\",\"杰出者的\"]  n.[\"优秀人材\",\"杰出人物\",\"杰出人物统治论的鼓吹者\"]"}, {"r": 11891, "w": "bribery", "d": "n.[\"行贿\",\"[法]贿赂\"]"}, {"r": 11976, "w": "crumpled", "d": "adj.[\"摺皱的，弄皱的\"]  v.[\"压皱，弄皱( crumple的过去式和过去分词 )\",\"变皱\"]"}, {"r": 11994, "w": "naming", "d": "n.[\"命名\"]  v.[\"确定( name的现在分词 )\",\"决定\",\"给…取名\",\"说出…的名字\"]"}, {"r": 12007, "w": "miniseries", "d": "n.[\"电视连续短剧\"]"}, {"r": 12019, "w": "Celtic", "d": "adj.[\"凯尔特人的\"]  n.[\"凯尔特人\",\"凯尔特语\"]"}, {"r": 12195, "w": "lowly", "d": "adj.[\"<旧>地位低的，卑微的\",\"卑贱的\",\"地位低的\"]  adv.[\"谦逊地\",\"卑鄙地\",\"低低地\",\"声音低低地\"]"}, {"r": 12245, "w": "allegory", "d": "n.[\"寓言\"]"}, {"r": 12250, "w": "unlucky", "d": "adj.[\"不幸运的，倒霉的\",\"不吉祥的\",\"不顺利的\",\"不凑巧的\"]"}, {"r": 12302, "w": "self-reported", "d": ""}, {"r": 12368, "w": "dignitary", "d": "n.[\"高僧\",\"高官\",\"显要人物\"]  adj.[\"高官的\",\"权贵的\"]"}, {"r": 12406, "w": "cortex", "d": "n.[\"皮质\",\"树皮\",\"果皮\"]"}, {"r": 12430, "w": "disband", "d": "vt.[\"（使）解散，散伙\",\"解体\",\"遣散\"]  vi.[\"解散\",\"遣散\"]"}, {"r": 12442, "w": "renal", "d": "adj.[\"肾脏的\"]"}, {"r": 12526, "w": "open-air", "d": "adj.[\"户外的，野外的\",\"露天的\"]"}, {"r": 12529, "w": "presuppose", "d": "vt.[\"预先假定\",\" 假设\",\"以…为先决条件\",\" 意味着\"]"}, {"r": 12567, "w": "rife", "d": "adj.[\"流行的\",\"普遍的\",\"盛传的\",\"越来越普及的\"]"}, {"r": 12569, "w": "dearth", "d": "n.[\"缺乏，稀少\"]"}, {"r": 12674, "w": "ecologically", "d": "adv.[\"从生态学的观点看\"]"}, {"r": 12703, "w": "baritone", "d": "n.[\"男中音，男中音歌手\",\"上低音部\",\"上低音乐器\"]"}, {"r": 12757, "w": "developmentally", "d": "[\"[医]adv.发育地\"]"}, {"r": 12808, "w": "cheers", "d": "int.[\"举杯敬酒的用语\",\"谢谢\",\"再见\"]  v.[\"喝彩（ cheer的第三人称单数 ）\",\"鼓励\",\"鼓舞\"]"}, {"r": 12819, "w": "resentful", "d": "adj.[\"感到愤恨的，表示愤恨的\",\"厌恶的\",\"易发脾气的，易怒的\"]"}, {"r": 12867, "w": "cleverly", "d": "adv.[\"聪明地\",\"灵巧地\",\"机敏地\",\"巧妙地\"]"}, {"r": 12872, "w": "relativism", "d": "n.[\"相对论，相对主义\"]"}, {"r": 12905, "w": "pang", "d": "n.[\"（肉体上）剧痛\",\"（精神上）一阵极度的痛苦\",\"苦闷\"]  vt.[\"使剧痛\",\"折磨\"]"}, {"r": 13104, "w": "swat", "d": "vt.[\"重拍（苍蝇等）\",\"猛击\"]  n.[\"重拍，猛击\"]"}, {"r": 13122, "w": "coldly", "d": "adv.[\"冷地\",\"冷淡地\",\"不友好地\",\"冷静地\"]"}, {"r": 13136, "w": "desirability", "d": "n.[\"愿望，希求\"]"}, {"r": 13176, "w": "commandment", "d": "n.[\"戒条\"]"}, {"r": 13241, "w": "enslave", "d": "vt.[\"使成为奴隶\",\"奴役\",\"<正>使受控制\",\"征服\"]"}, {"r": 13274, "w": "discouraging", "d": "adj.[\"令人沮丧的，使人泄气的\",\"阻止的\"]  v.[\"使气馁( discourage的现在分词 )\",\"使沮丧\",\"阻碍\",\"劝阻\"]"}, {"r": 13309, "w": "medallion", "d": "n.[\"大奖章，大勋章\",\"（大奖章形的）圆形图案（饰物）\"]"}, {"r": 13363, "w": "Zionist", "d": "n.[\"犹太复国运动的支持者或拥护者\"]"}, {"r": 13402, "w": "toll-free", "d": "adj.[\"<美>（打电话）由接电话的机构付费的，受付\"]"}, {"r": 13406, "w": "blip", "d": "n.[\"[电子学]尖峰信号，尖头信号\",\"短促而尖锐的声音\",\"（统计数字的）上下浮动\",\"雷达的可视信号\"]  vi.[\"发哔哔声\",\"发信号\",\"（雷达等屏幕上）出现光点\",\"出现波动\"]"}, {"r": 13408, "w": "stocky", "d": "adj.[\"矮壮的\",\"健壮结实的\"]"}, {"r": 13537, "w": "calming", "d": "v.[\"（使）平静， （使）镇定( calm的现在分词 )\",\"使安静\",\"使冷静\",\"使镇定\"]"}, {"r": 13621, "w": "carnivore", "d": "n.[\"食肉动物，食虫植物\"]"}, {"r": 13654, "w": "greased", "d": "adj.[\"<美俚>灌足酒的，醉的\"]"}, {"r": 13673, "w": "underclass", "d": "n.[\"下层社会，下层阶级\",\"社会低层\",\"一、二年级学生\"]"}, {"r": 13676, "w": "rye", "d": "n.[\"吉卜赛绅士\",\"黑麦\",\"裸麦威士忌酒\"]  adj.[\"用黑麦制成的\"]"}, {"r": 13758, "w": "breakout", "d": "n.[\"脱逃，越狱，突围\"]"}, {"r": 13764, "w": "tonal", "d": "adj.[\"声调的，调性的\"]"}, {"r": 13770, "w": "redistribute", "d": "vt.[\"重新分配\",\"再分配\"]"}, {"r": 13809, "w": "welding", "d": "n.[\"焊接法，定位焊接\",\"粘结\"]  vt.[\"熔接\",\"锻接\",\"使结合\"]  vi.[\"焊牢，能被焊接\"]  v.[\"焊接( weld的现在分词 )\",\"熔接\",\"锻接\",\"使紧密结合\"]"}, {"r": 13824, "w": "noxious", "d": "adj.[\"有害的，有毒的\"]"}, {"r": 13986, "w": "psychometric", "d": "adj.[\"心理测量的，心理测量学的\"]"}, {"r": 13989, "w": "predictability", "d": "n.[\"可预测性\",\"可预言性\"]"}, {"r": 14000, "w": "synchronize", "d": "vt.[\"使同步\",\"使同时\"]  vi.[\"同时发生\",\"共同行动\"]"}, {"r": 14115, "w": "backwater", "d": "n.[\"回水，回流\",\"滞水，死水\",\"闭塞的地方\",\"不受外界事件或新思想影响的地方\"]  v.[\"倒开船\",\"食言\"]"}, {"r": 14142, "w": "cursory", "d": "adj.[\"粗略的，草率的，仓促的\",\"肤皮潦草\"]"}, {"r": 14201, "w": "amenable", "d": "adj.[\"（对法律等）负责的\",\"易控制的\",\"经得起检验（或考查）的\",\"可用某种方式处理的\"]"}, {"r": 14207, "w": "fleece", "d": "n.[\"羊毛\",\"一只羊一次剪下的毛\",\"羊毛状织物\",\"绒头织物\"]  vt.[\"诈取\",\"剪羊毛\",\"（羊毛般）盖满\"]"}, {"r": 14287, "w": "Israeli-Palestinian", "d": ""}, {"r": 14372, "w": "biz", "d": "n.[\"商业\",\"生意\"]"}, {"r": 14385, "w": "unfettered", "d": "adj.[\"被除去脚镣的\",\"<正>不受限制的，不受约束的\"]  v.[\"解放（ unfetter的过去式和过去分词 ）\"]"}, {"r": 14426, "w": "studied", "d": "adj.[\"有计划的\",\"故意的\",\"深思熟虑的\",\"精通的\"]  v.[\"学习，研究( study的过去式和过去分词 )\",\"想出\",\"详细地检查\",\"背诵（台词等）\"]"}, {"r": 14453, "w": "ferocity", "d": "n.[\"凶猛，残暴\",\"暴行\"]"}, {"r": 14474, "w": "promenade", "d": "n.[\"散步，闲逛\",\"通道，走廊\",\"舞会\",\"骑马\"]  vt.& vi.[\"漫步\",\"散步\",\"骑马\"]"}, {"r": 14647, "w": "motherfucker", "d": "n.[\"（通常指男性）不要脸的家伙，混账东西\"]"}, {"r": 14729, "w": "long-running", "d": "adj.[\"长期上演的\",\"连续上演很长时间的\"]"}, {"r": 14731, "w": "wager", "d": "n.[\"赌金，赌注\",\"赌物\",\"赌博\"]  vt.& vi.[\"打赌\",\"担保，保证\"]  vt.[\"保证，担保\",\"下赌注\"]"}, {"r": 14737, "w": "mutate", "d": "vt.& vi.[\"（使某物）变化\",\"改变\",\"突变\",\"变异\"]"}, {"r": 14750, "w": "gelatin", "d": "n.[\"凝胶，白明胶\"]"}, {"r": 14769, "w": "ordered", "d": "adj.[\"安排好的，整齐的，规则的\"]  v.[\"（医生）开（处方）( order的过去式和过去分词 )\",\"订购\",\"（上帝、命运等）注定\",\"点（饭菜，饮料等）\"]"}, {"r": 14889, "w": "navigator", "d": "n.[\"航海家，航行者，航海者\",\"领航员\",\"（船舶，飞机的）驾驶员\",\"一个浏览器的品牌\"]"}, {"r": 14907, "w": "outflow", "d": "n.[\"流出\",\"流出物\",\"流出量\"]  vi.[\"流出\"]"}, {"r": 14918, "w": "carelessly", "d": "adv.[\"无忧无虑地\",\"粗心大意地\",\"草率地\",\"淡漠地\"]"}, {"r": 14945, "w": "whiz", "d": "n.[\"飕飕声\",\"能手\",\" 专家\",\" 有吸引力的东西\"]  vi.[\"发出飕飕声\",\"<口>高速移动\"]"}, {"r": 14946, "w": "fixing", "d": "n.[\"固定\",\"稳固\",\"设备\",\"安装\"]  v.[\"固定( fix的现在分词 )\",\"准备\",\"修理\",\"使牢固\"]"}, {"r": 15052, "w": "croak", "d": "vi.[\"呱呱地叫\"]  vt.& vi.[\"用粗的声音说\"]  n.[\"呱呱的叫声\"]"}, {"r": 15074, "w": "seventeenth-century", "d": ""}, {"r": 15127, "w": "free-standing", "d": "adj.[\"自立的，不需依靠支撑物的\"]"}, {"r": 15204, "w": "provenance", "d": "n.[\"起源，出处\"]"}, {"r": 15272, "w": "intergenerational", "d": "adj.[\"两代间的\"]"}, {"r": 15290, "w": "pita", "d": "n.[\"（希腊和中东地区的）皮塔饼\"]"}, {"r": 15298, "w": "inducement", "d": "n.[\"诱导，劝诱\",\"诱因，动机\",\"[法]引言部分\",\"刺激物\"]"}, {"r": 15339, "w": "postpartum", "d": "adj.[\"产后的\"]"}, {"r": 15371, "w": "collapsing", "d": "n.[\"压扁[平]，毁坏，断裂\"]  v.[\"折叠( collapse的现在分词 )\",\"倒塌\",\"崩溃\",\"（尤指工作劳累后）坐下\"]"}, {"r": 15467, "w": "surreptitiously", "d": "adv.[\"偷偷摸摸地，暗中进行地\",\"秘密地\"]"}, {"r": 15480, "w": "optimization", "d": "n.[\"最佳化，最优化\",\"优选法\",\"优化组合\"]"}, {"r": 15493, "w": "condor", "d": "n.[\"神鹰\",\"秃鹫，秃鹰\",\"秃鹰金币\"]"}, {"r": 15526, "w": "lawless", "d": "adj.[\"违法的\",\"法律不及的\",\"无法无天的\",\"无艺\"]"}, {"r": 15540, "w": "second-generation", "d": "[\"第二代\"]"}, {"r": 15598, "w": "hour-long", "d": ""}, {"r": 15723, "w": "horny", "d": "adj.[\"角质的，角状的\",\"坚硬的\",\"〈美俚〉好色的，猥亵的\",\"〈古〉半透明\"]"}, {"r": 15764, "w": "Icelandic", "d": "adj.[\"冰岛的\"]"}, {"r": 15777, "w": "four-hour", "d": ""}, {"r": 15807, "w": "oeuvre", "d": "n.[\"全部作品\"]"}, {"r": 15876, "w": "snoop", "d": "vi.[\"探听，窥探，管闲事\"]  n.[\"探听\",\"窥探\",\"管闲事\"]"}, {"r": 15908, "w": "octave", "d": "n.[\"<音>八度音\",\"八度音阶\",\"高八度音\",\"八度和音\"]"}, {"r": 15966, "w": "lob", "d": "vt.[\"吊高球\",\"打缓慢的球\"]  vi.[\"抛高球\",\"蹒跚地走\"]  n.[\"高球\",\"<英>笨重的人\"]"}, {"r": 15976, "w": "black-eyed", "d": "adj.[\"黑眼珠的，黑眼圈的\"]"}, {"r": 15986, "w": "indentation", "d": "n.[\"凹进\",\"缩格\",\"凹口\",\"缺口\"]"}, {"r": 16019, "w": "broadside", "d": "n.[\"<船>（吃水线以上的）舷侧\",\"（书面或口头的）猛烈抨击\",\"全部舷侧炮\",\"宽阔面\"]  adv.[\"侧对着\",\"侧向地\",\"漫无目标地\",\"胡乱地\"]  vt.[\"<美>撞上（车）的一侧\"]"}, {"r": 16030, "w": "crass", "d": "adj.[\"愚笨的\",\"粗鲁的\",\"非常的，彻底的\"]"}, {"r": 16100, "w": "to-do", "d": "n.[\"吵闹\",\"骚乱\"]"}, {"r": 16197, "w": "hypothermia", "d": "n.[\"低体温\"]"}, {"r": 16273, "w": "habitation", "d": "n.[\"居住\",\"住宅，家\"]"}, {"r": 16347, "w": "six-day", "d": "abbr.[\"Six-Day War 六天战争(1967年6月5号至10号，在以色列，埃及和叙利亚之间)\"]"}, {"r": 16417, "w": "libido", "d": "n.[\"本能冲动，性欲\"]"}, {"r": 16463, "w": "downtime", "d": "n.[\"（工厂等由于检修、待料等的）停工期\"]"}, {"r": 16471, "w": "pimple", "d": "n.[\"丘疹，粉刺，小脓疱\"]"}, {"r": 16506, "w": "humbling", "d": "adj.[\"令人羞辱的\"]  v.[\"使谦恭( humble的现在分词 )\",\"轻松打败（尤指强大的对手）\",\"低声下气\"]"}, {"r": 16527, "w": "incontinence", "d": "n.[\"不能自制，无节制，失禁\"]"}, {"r": 16598, "w": "mind-boggling", "d": "adj.[\"令人难以置信的\"]"}, {"r": 16604, "w": "case-by-case", "d": "[\"逐项给予\"]"}, {"r": 16613, "w": "derelict", "d": "adj.[\"被抛弃的，废弃的\",\"玩忽职守的\"]  n.[\"遗弃物\",\"玩忽职守者\"]"}, {"r": 16680, "w": "loader", "d": "n.[\"装货的人，装货设备，装弹机\",\"装板机\"]"}, {"r": 16698, "w": "eucharistic", "d": "adj.[\"圣餐的，圣体的\"]"}, {"r": 16828, "w": "suitably", "d": "adv.[\"适当地，适宜地\",\"相配地\",\"合适地\"]"}, {"r": 16884, "w": "scoundrel", "d": "n.[\"恶棍，坏蛋\"]"}, {"r": 16886, "w": "caustic", "d": "adj.[\"<化>苛性的\",\"腐蚀性的\",\"尖刻的，刻薄的\",\"[物]焦散的\"]  adv.[\"刻薄地，挖苦地\"]  n.[\"焦散线，焦散面\",\"刻薄，讽刺\",\"[化]苛性碱\",\"[医]腐蚀剂\"]"}, {"r": 16951, "w": "cooperating", "d": "adj.[\"共同运转的，协同操作的\"]  v.[\"合作，配合，协助( cooperate的现在分词 )\"]"}, {"r": 16976, "w": "cranny", "d": "n.[\"裂缝，裂隙\"]"}, {"r": 17004, "w": "glower", "d": "vi.[\"怒视\"]"}, {"r": 17036, "w": "regressive", "d": "adj.[\"后退的\",\"逆行的\",\"退化的\",\"回归的\"]"}, {"r": 17041, "w": "regionally", "d": "adv.[\"地方的，地域性的\"]"}, {"r": 17072, "w": "dismantling", "d": "n.[\"（枪支）分解\"]  v.[\"拆开( dismantle的现在分词 )\",\"拆卸\",\"废除\",\"取消\"]"}, {"r": 17180, "w": "localize", "d": "vt.[\"使局部化\",\"使具地方色彩\"]"}, {"r": 17206, "w": "preconceived", "d": "adj.[\"预想的，先入为主的\"]"}, {"r": 17275, "w": "sulk", "d": "vi.[\"生气，愠怒\"]  n.[\"生气，愠怒\",\"愠怒[生气]的人\"]"}, {"r": 17353, "w": "awed", "d": "adj.[\"充满敬畏的，表示敬畏的\"]  v.[\"使敬畏，使惊惧( awe的过去式和过去分词 )\"]"}, {"r": 17377, "w": "dexterity", "d": "n.[\"灵巧\",\"熟练\",\"敏捷\",\"聪敏\"]"}, {"r": 17384, "w": "unhook", "d": "vt.[\"从钩子上取下，解开（衣物等）的搭扣\"]"}, {"r": 17499, "w": "psychopath", "d": "n.[\"精神变态者，精神病患者\"]"}, {"r": 17507, "w": "visage", "d": "n.[\"<文>脸\",\"面容\",\"外表\",\"外观\"]"}, {"r": 17573, "w": "mangle", "d": "vt.[\"乱砍\",\"损坏\",\"用轧布机砑光\"]  n.[\"轧布机，轧板机，碾压机\"]"}, {"r": 17600, "w": "gastric", "d": "adj.[\"胃的\",\"胃部的\"]"}];
+const DENSE_POOL = [{"r": 1, "w": "the", "d": "art.[\"指已提到的人（物）\",\"指说话人与听者已知的人（物）\",\"用于独一无二的事物前\",\"与形容词最高级和序数词连用\"]"}, {"r": 41, "w": "all", "d": "adj.[\"全部的\",\"一切的\",\"各种的\",\"极度的，尽量的\"]  pron.[\"全部\",\"一切\",\"每个人，每件东西\",\"全部情况\"]  adv.[\"全部地\",\"完全地\",\"每个\",\"非常\"]  n.[\"全体\",\"[常作A-]整体\",\"[常与my, your, his, her等连用]（某人）所有的一切\"]"}, {"r": 81, "w": "way", "d": "n.[\"道路\",\"方法\",\"方向\",\"某方面\"]  adv.[\"远远地，大大地\"]"}, {"r": 121, "w": "last", "d": "n.[\"末尾\",\"最后\",\"上个\",\"鞋楦（做鞋的模型）\"]  vt.[\"经受住\",\"到…之后\",\"够用\",\"足够维持（尤指某段时间）\"]  adj.[\"最近的\",\"最后的\",\"最不可能的\",\"惟一剩下的\"]  vi.[\"持续\"]  adv.[\"上一次，最近一次\",\"最后\"]"}, {"r": 161, "w": "start", "d": "n.[\"开始\",\"动身\",\"开动\",\"起点\"]  vt.& vi.[\"出发，启程\"]  vt.[\"起动\",\"提出（问题）\",\"开办\",\"使开始\"]  vi.[\"起始\",\"突然出现\",\"突然跳起\",\"突然涌出\"]"}, {"r": 201, "w": "before", "d": "prep.[\"在…之前\",\"先于，优于\",\"当着…的面\",\"与其…\"]  conj.[\"在…之前\",\"在…以前\",\"比…早些\",\"与其…\"]  adv.[\"先前，从前\",\"在前，在前方\"]"}, {"r": 241, "w": "service", "d": "n.[\"服务，服侍\",\"服务业\",\"维修服务\",\"服役\"]  vt.[\"检修，维修\",\"向…提供服务\",\"保养\",\"满足需要\"]  adj.[\"服务性的\",\"耐用的\",\"服现役的\"]"}, {"r": 281, "w": "learn", "d": "vt.& vi.[\"学习，学会\",\"习得\",\"得知\",\"记住\"]  vt.[\"记住\",\"学习\",\"得知\",\"认识到\"]  vi.[\"学习\",\"获知\"]"}, {"r": 321, "w": "war", "d": "n.[\"战争\",\"战争期间\",\"斗争\",\"论战\"]  vi.[\"进行战斗，作战\",\"同…处于交战状态\"]"}, {"r": 361, "w": "including", "d": "prep.[\"包括\",\"包含\"]  v.[\"包括( include的现在分词)\",\"包含\",\"列入\",\"包住\"]"}, {"r": 401, "w": "perhaps", "d": "adv.[\"或许\",\"（表示不确定）也许\",\"（用于粗略的估计）或许\",\"（表示勉强同意或其实不赞成）也许\"]  n.[\"假定\",\"猜想\",\"未定之事\"]"}, {"r": 441, "w": "decision", "d": "n.[\"决定\",\"果断\",\"决议\",\"（法院的）判决\"]  vt.[\"[口语][拳击]靠判定击败（对手）\"]"}, {"r": 481, "w": "form", "d": "n.[\"形状，形式\",\"外形\",\"方式\",\"表格\"]  vt.[\"形成\",\"构成\",\"组织\",\"塑造\"]  vi.[\"形成，产生\",\"排队，整队\"]"}, {"r": 521, "w": "recent", "d": "adj.[\"最近的\",\"新近的\",\"近代的\",\"[地]全新世的\"]"}, {"r": 561, "w": "billion", "d": "n.[\"十亿\",\"数以十亿计\",\"大量\",\"一万亿\"]  adj.[\"（法美）十亿的\",\"（英德）万亿的\",\"无数的\"]"}, {"r": 601, "w": "defense", "d": "n.[\"(D-)（美国）国防部，防卫，防卫物\"]  vt.[\"谋划抵御\"]"}, {"r": 641, "w": "store", "d": "n.[\"商店\",\"贮存物\",\"仓库\",\"大量\"]  v.[\"贮存\",\"（在计算机里）存储\"]"}, {"r": 681, "w": "treatment", "d": "n.[\"治疗，疗法\",\"处理\",\"待遇，对待\"]"}, {"r": 721, "w": "character", "d": "n.[\"性格\",\"特点\",\"字母\",\"角色\"]  vt.[\"刻，印\",\"使具有特征\"]"}, {"r": 761, "w": "financial", "d": "adj.[\"财政的\",\"财务的\",\"金融的\",\"有钱的\"]"}, {"r": 801, "w": "enjoy", "d": "vt.[\"享有，享受\",\"欣赏\",\"喜欢\",\"使过得快活\"]  vi.[\"使过得快活\"]"}, {"r": 841, "w": "reveal", "d": "vt.[\"显露\",\"揭露\",\"泄露\",\"[神]启示\"]  n.[\"揭示，展现\",\"[建]门侧，窗侧\"]"}, {"r": 881, "w": "deep", "d": "adj.[\"深的\",\"深远的，深奥\",\"重大的，深刻的\",\"强烈的，痛切的，深厚的\"]  n.[\"深处，深渊\"]  adv.[\"深深地，深入地\"]"}, {"r": 921, "w": "agent", "d": "n.[\"代理人\",\"代理商\",\"药剂\",\"特工\"]  vt.[\"由…作中介\",\"由…代理\"]  adj.[\"代理的\"]"}, {"r": 961, "w": "nor", "d": "conj.[\"也不\",\"也不是\",\"和 neither 或 not 连用\",\"去甲\"]"}, {"r": 1001, "w": "fresh", "d": "adj.[\"新鲜的\",\"淡水的\",\"新的\",\"无经验的\"]  adv.[\"刚\",\"最新的\"]  n.[\"开始\",\"新生\",\"泛滥\",\"淡水流\"]"}, {"r": 1041, "w": "achieve", "d": "vt.[\"取得\",\"获得\",\"实现\",\"成功\"]  vi.[\"达到预期的目的，实现预期的结果，如愿以偿\"]"}, {"r": 1081, "w": "insurance", "d": "n.[\"保险，保险业\",\"保险费\",\"预防措施\"]  adj.[\"[体]巩固球队领先局面，使对手不能因增加一分而成平局的\"]"}, {"r": 1121, "w": "mountain", "d": "n.[\"山，山岳\",\"山脉\",\"一大堆\",\"大量\"]"}, {"r": 1161, "w": "ride", "d": "vt.& vi.[\"乘，骑，驾\"]  n.[\"（乘坐汽车等的）旅行\",\"乘骑\",\"（乘车或骑车的）短途旅程\",\"供乘骑的游乐设施\"]  vt.[\"（骑马、自行车等）穿越\",\"搭乘\",\"飘浮\"]"}, {"r": 1201, "w": "river", "d": "n.[\"河，江\",\"溪，巨流\"]"}, {"r": 1241, "w": "baseball", "d": "n.[\"棒球\",\"[体]棒球运动\"]"}, {"r": 1281, "w": "intelligence", "d": "n.[\"智力\",\"聪颖\",\"情报\",\"情报机构\"]"}, {"r": 1321, "w": "Internet", "d": "n.[\"国际互联网，因特网\"]"}, {"r": 1361, "w": "bottom", "d": "n.[\"底部\",\"末端\",\"臀部\",\"尽头\"]  adj.[\"底部的\"]  vt.[\"装底\",\"测量深浅\",\"查明真相\"]  vi.[\"到达底部\",\"建立基础\"]"}, {"r": 1401, "w": "respect", "d": "vt.[\"尊重\",\"尊敬\",\"关心\",\"遵守\"]  n.[\"尊重，恭敬\",\"敬意\",\"某方面\"]"}, {"r": 1441, "w": "complex", "d": "adj.[\"复杂的\",\"难懂的\",\"复合的\"]  n.[\"建筑群\",\"相关联的一组事物\",\"情结\",\"不正常的忧虑\"]"}, {"r": 1481, "w": "okay", "d": "n.[\"认可，同意\"]  v.[\"赞成或同意\",\"批准\"]  int.[\"行，用以表达准许或同意之意\"]  adj.[\"可以，不错\"]"}, {"r": 1521, "w": "bridge", "d": "n.[\"桥\",\"桥牌\",\"鼻梁\",\"起联系作用的东西\"]  vt.[\"在…建桥，架桥于…之上\",\"通过桥横跨\"]"}, {"r": 1561, "w": "stress", "d": "n.[\"强调\",\"重音\",\"压力\",\"重力\"]  vt.[\"重读\",\"[机械学]使承受压力\",\"给…加压力（或应力）\"]"}, {"r": 1601, "w": "ourselves", "d": "pron.[\"“myself”的复数\",\"我们自己\",\"（把）我们自己\"]"}, {"r": 1641, "w": "motion", "d": "n.[\"运动\",\"手势\",\"动机，意向\",\"请求\"]  vt.[\"打手势\",\"向某人点头或摇头示意\",\"打手势要求[指示]\"]  vi.[\"运动\",\"打手势\"]"}, {"r": 1681, "w": "confidence", "d": "n.[\"信心\",\"信任\",\"秘密\"]  adj.[\"骗得信任的\",\"欺诈的\"]"}, {"r": 1721, "w": "fashion", "d": "n.[\"时尚，时装\",\"时装领域，时尚界\",\"方式，方法\"]  vt.[\"制作，塑造\",\"使适应\"]"}, {"r": 1761, "w": "fewer", "d": "pron.[\"（动词用复数）较少数\"]  adj.[\"较少的\",\"不多的( few的比较级 )\",\"很少\",\"（与复数名词和复数动词连用）有些\",\"几个\"]"}, {"r": 1801, "w": "gate", "d": "n.[\"门\",\"闸门\",\"登机门\",\"入场费\"]  vt.[\"给…装大门\",\"[电子学] 电波传送\"]"}, {"r": 1841, "w": "guilty", "d": "adj.[\"内疚的\",\"有罪的\"]"}, {"r": 1881, "w": "childhood", "d": "n.[\"童年，儿童时代\",\"早期\"]"}, {"r": 1921, "w": "housing", "d": "n.[\"房屋\",\"供给住宅\",\"掩护\",\"外罩\"]"}, {"r": 1961, "w": "bend", "d": "vt.[\"（使）弯曲，屈身\",\"拉弯\",\"使成形，强行\",\"集中全力于\"]  vi.[\"偏向\",\"使变曲，成角度\",\"弯身，弯腰\",\"专心\"]  n.[\"弯曲（处）\",\"（尤指道路或河流的）拐弯\",\"弯道\",\"（潜水员过快浮出水面造成的）减压病\"]"}, {"r": 2001, "w": "resolve", "d": "vt.& vi.[\"决定\",\"决心\"]  vt.[\"使消释\",\"使分解，使解体\",\"（指委员会或集会）表决\",\"消退（炎症等）\"]  vi.[\"下决定\",\"分解\"]  n.[\"决意，决定\",\"（会议等的）决议\"]"}, {"r": 2041, "w": "vs", "d": "abbr.[\"versus 对\"]"}, {"r": 2081, "w": "entry", "d": "n.[\"进入，入场\",\"入口处，门口\",\"登记，记录\",\"参加比赛的人\"]"}, {"r": 2121, "w": "interpretation", "d": "n.[\"解释，说明\",\"翻译\",\"表演，演绎\",\"理解\"]"}, {"r": 2161, "w": "nearby", "d": "adj.[\"在附近的，位于附近的\"]  adv.[\"附近地，不远地\"]"}, {"r": 2201, "w": "resist", "d": "v.[\"抵抗，抗拒\",\"忍耐\",\"反对，抵制\"]  n.[\"防染剂\",\"防腐剂\"]"}, {"r": 2241, "w": "FALSE", "d": "adj.[\"虚伪的\",\"不正的，非法的\",\"假造的，摹造的\",\"临时的\"]  adv.[\"欺诈地\",\"叛卖地\"]"}, {"r": 2281, "w": "biological", "d": "adj.[\"生物学的\",\"生物的\",\"与生物学相关的\",\"有血亲关系的\"]  n.[\"[药]生物制品，生物制剂\"]"}, {"r": 2321, "w": "minor", "d": "adj.[\"较小的，少数的，小…\",\"未成年的\",\"[乐]小调的，小音阶的\",\"（两同姓男孩中）年幼的\"]  n.[\"未成年人\",\"副修科目\",\"小公司\",\"[逻辑学]小前提\"]  vi.[\"[主美国英语]副修，选修，兼修\"]"}, {"r": 2361, "w": "portrait", "d": "n.[\"肖像，肖像画\",\"模型，标本\",\"半身雕塑像\",\"人物描写\"]"}, {"r": 2401, "w": "fortune", "d": "n.[\"（某人的）命运\",\"富有\",\"幸运\",\"[常作复数]（人生事件中的）时运\"]  vt.[\"给予财富\"]  vi.[\"偶然发生\"]"}, {"r": 2441, "w": "gently", "d": "adv.[\"温柔地\",\"轻轻地\",\"有礼貌地\",\"文雅地\"]"}, {"r": 2481, "w": "mutual", "d": "adj.[\"共有的\",\"共同的\",\"相互的\",\"彼此的\"]"}, {"r": 2521, "w": "extensive", "d": "adj.[\"广阔的，广大的\",\"范围广泛的\",\"[物]广延的\",\"[逻]外延的\"]"}, {"r": 2561, "w": "imagination", "d": "n.[\"想像，想像力\",\"空想，妄想\",\"想像出来的事物\"]"}, {"r": 2601, "w": "vessel", "d": "n.[\"容器\",\"船，飞船\",\"血管，管束\",\"…的化身\"]"}, {"r": 2641, "w": "shade", "d": "n.[\"遮阳，遮棚\",\"挡风物\",\"玻璃罩\",\"（画的）阴暗部分\"]  vt.[\"遮蔽\",\"险胜\",\"加灯罩\",\"画阴影于…之上\"]  vi.[\"逐渐变化\"]"}, {"r": 2681, "w": "fighter", "d": "n.[\"战士（尤指士兵或拳击者）\",\"[航]战斗机，歼击机\",\"斗争者，奋斗者\",\"好斗的人\"]"}, {"r": 2721, "w": "publisher", "d": "n.[\"出版者，出版商，出版社\",\"公布者，发表者\",\"〈美〉办报者\"]"}, {"r": 2761, "w": "prompt", "d": "adj.[\"敏捷的\",\"迅速的\",\"立刻的\",\"准时的\"]  v.[\"促使\",\"导致\",\"鼓励\",\"提示\"]  n.[\"激励\",\"提示符\",\"提词\",\"提示\"]  adv.[\"准时地\"]"}, {"r": 2801, "w": "versus", "d": "prep.[\"（表示两队或双方对阵）对\",\"（比较两种不同想法、选择等）与…相对\",\"对抗\"]"}, {"r": 2841, "w": "garage", "d": "n.[\"车库\",\"汽车修理站\",\"飞机库\"]  vt.[\"把…送入车库\",\"把（汽车）开进车库\"]"}, {"r": 2881, "w": "discourse", "d": "n.[\"论述，交谈\",\"正式的讨论\"]  vi.[\"演说\",\"谈论\"]  vt.[\"叙述\",\"讨论\"]"}, {"r": 2921, "w": "adequate", "d": "adj.[\"足够的\",\"适当的，恰当的\",\"差强人意的\",\"胜任的\"]"}, {"r": 2961, "w": "collective", "d": "adj.[\"集体的\",\"共同的\",\"集合的\",\"集体主义的\"]  n.[\"[统]集体\",\"[语]集合名词\",\"集团\"]"}, {"r": 3001, "w": "norm", "d": "n.[\"标准\",\"规范\",\"准则\",\"（劳动）定额\"]"}, {"r": 3041, "w": "bitter", "d": "adj.[\"苦的\",\"尖锐的\",\"严寒的\",\"怀恨的，愤愤不平的\"]  n.[\"苦\",\"苦味物\",\"苦啤酒\",\"[航]系缆柱上的一圈缆索\"]  adv.[\"激烈地\",\"痛苦地\",\"严厉地\"]  vt.[\"使变苦\"]"}, {"r": 3081, "w": "march", "d": "vi.[\"（坚定地向某地）前进\",\"行军，进军\",\"游行示威\",\"进展，进行\"]  vt.[\"使前进\",\"使行军\"]  n.[\"行进，前进\",\"行军\",\"游行示威\",\"进行曲\"]"}, {"r": 3121, "w": "bay", "d": "n.[\"湾，海湾\",\"犬吠声\",\"月桂树\",\"吊窗，凸窗\"]  vi.[\"（尤指猎犬等）吠，叫，咆哮\",\"筑堤遏（水）\",\"穷追，使陷入绝境\",\"阻止（敌人）不使前进\"]  adj.[\"赤褐色的，栗色的\"]  vt.[\"向…吠叫\"]"}, {"r": 3161, "w": "rip", "d": "n.[\"裂口\",\"废物\",\"[美国俚语]偷窃\",\"浪子\"]  vt.& vi.[\"扯破，撕坏\"]  vt.[\"撕成\",\"锯\",\"猛地扯开\",\"拆（衣服）\"]  vi.[\"裂开，绽线\"]"}, {"r": 3201, "w": "leap", "d": "vi.[\"跳\",\"冲动的行动\"]  vt.[\"跳过，跃过\",\"使跳跃\"]  n.[\"跳跃，飞跃\",\"跳跃的距离\"]"}, {"r": 3241, "w": "await", "d": "vt.[\"等候\",\"等待\",\"期待\"]"}, {"r": 3281, "w": "accommodate", "d": "vt.[\"容纳\",\"使适应\",\"向…提供住处\",\"帮忙\"]  vi.[\"[后面省去反身代词]适应于\",\"（眼）作调节，调节眼球的晶状体（使其变得适应不同距离的物体）\",\"调解，调停\"]"}, {"r": 3321, "w": "suspicion", "d": "n.[\"怀疑\",\"嫌疑\",\"疑心\",\"〈口〉一点儿\"]  vt.[\"怀疑\"]"}, {"r": 3361, "w": "shuttle", "d": "n.[\"（织机的）梭子\",\"航天飞机\",\"（缝纫机的）滑梭\",\"短程穿梭运行的飞机（或火车，汽车）\"]  vt.& vi.[\"穿梭般来回移动\"]  vt.[\"以短程往复方式运送（货物等）\"]  vi.[\"以短程往复式运行\"]"}, {"r": 3401, "w": "acquisition", "d": "n.[\"获得\",\"购置物\",\"获得物\",\"收购\"]"}, {"r": 3441, "w": "hint", "d": "n.[\"线索，迹象\",\"提示，注意事项\",\"暗示\",\"微量\"]  vt.[\"暗示\"]  vi.[\"暗示，提示\"]"}, {"r": 3481, "w": "prevention", "d": "n.[\"预防，预防法\",\"阻止，制止，妨碍，阻碍物\",\"[谚]治病不如防病\"]"}, {"r": 3521, "w": "silly", "d": "adj.[\"蠢的\",\"糊涂的\",\"不明事理的\",\"没头脑的\"]  n.[\"（常用于向孩子指出其愚蠢行为）傻孩子，淘气鬼\",\"傻子，蠢货\"]"}, {"r": 3561, "w": "elder", "d": "n.[\"年长的，资格老的\",\"头人，长辈\",\"长老\"]  adj.[\"年纪较大的\",\"资格老的\",\"老练的\"]"}, {"r": 3601, "w": "ours", "d": "pron.[\"我们的\"]"}, {"r": 3641, "w": "equip", "d": "vt.[\"装备，配备\",\"使具备，使有准备\"]"}, {"r": 3681, "w": "wagon", "d": "n.[\"四轮的运货马车\",\"<英>铁路货车\",\"<美>小手推车\",\"囚车\"]  vt.[\"用运货马车运输货物\"]  na.[\"“waggon”的变体\"]"}, {"r": 3721, "w": "teammate", "d": "n.[\"队友，同队队员\"]"}, {"r": 3761, "w": "ambition", "d": "n.[\"抱负\",\"渴望得到的东西\",\"追求的目标\",\"夙愿\"]  vt.[\"追求\",\"有…野心\"]"}, {"r": 3801, "w": "instructional", "d": "adj.[\"指导的，教育的\"]"}, {"r": 3841, "w": "bicycle", "d": "n.[\"自行车\",\"脚踏车\"]  v.[\"骑自行车\"]"}, {"r": 3881, "w": "disabled", "d": "adj.[\"残废的，有缺陷的\"]  v.[\"使无能力( disable的过去式和过去分词)\",\"使残废\",\"使伤残\",\"使无效\"]"}, {"r": 3921, "w": "worldwide", "d": "adj.[\"全世界的\"]  adv.[\"遍及全球地\"]"}, {"r": 3961, "w": "genre", "d": "n.[\"类型，种类\",\"体裁，样式\",\"风俗画\"]"}, {"r": 4001, "w": "validity", "d": "n.[\"有效，合法性\",\"效力\",\"正确，正当\",\"正确性\"]"}, {"r": 4041, "w": "hunger", "d": "n.[\"饿，饥饿\",\"欲望\"]  vt.& vi.[\"（使）饥饿\"]  vi.[\"渴望\"]"}, {"r": 4081, "w": "thrive", "d": "vi.[\"兴盛，兴隆\",\"长得健壮\",\"茁壮成长\"]"}, {"r": 4121, "w": "goat", "d": "n.[\"山羊\",\"色鬼\",\"替罪羊\"]"}, {"r": 4161, "w": "fraction", "d": "n.[\"[数]分数\",\"一小部分，些微\",\"不相连的一块，片段\",\"[化]分馏\"]"}, {"r": 4201, "w": "loyal", "d": "adj.[\"忠诚的，忠心的\",\"忠贞的\"]  n.[\"效忠的臣民\",\"忠实信徒\"]"}, {"r": 4281, "w": "sunny", "d": "adj.[\"和煦的：照到阳光的\",\"快活的，性情开朗亲切的\"]"}, {"r": 4321, "w": "fog", "d": "n.[\"雾\",\"烟雾\",\"迷惑\",\"割后再生的草\"]  vt.[\"以雾包围\",\"使模糊\",\"使迷惑\"]  vi.[\"为雾笼罩\",\"朦胧\",\"照片（模糊）\"]"}, {"r": 4361, "w": "devise", "d": "v.[\"设计\",\"发明\",\"策划\",\"想出\"]  n.[\"遗赠\",\"遗赠的财产\",\"遗赠的条款\"]"}, {"r": 4401, "w": "concession", "d": "n.[\"让步，迁就\",\"（尤指由政府或雇主给予的）特许权\",\"租借地\",\"承认或允许\"]"}, {"r": 4441, "w": "hover", "d": "vi.[\"盘旋\",\"徘徊\",\"犹豫\"]  n.[\"徘徊\",\"盘旋\"]"}, {"r": 4481, "w": "embody", "d": "vt.[\"表现，象征\",\"包含，收录\",\"使具体化\",\"[军]组编\"]"}, {"r": 4521, "w": "manufacture", "d": "vt.[\"制造，生产\",\"捏造，虚构\",\"加工\",\"从事制造\"]  n.[\"制造\",\"制成品，产品\",\"工业，工厂\",\"（文学作品等的）粗制滥造\"]"}, {"r": 4561, "w": "hood", "d": "n.[\"兜帽\",\"头巾\",\"车篷\",\"引擎罩\"]  vt.[\"罩上\",\"覆盖\"]"}, {"r": 4601, "w": "pesticide", "d": "n.[\"杀虫剂，农药\"]"}, {"r": 4641, "w": "comic", "d": "adj.[\"喜剧的\",\"滑稽的，好笑的\",\"连环画的\"]  n.[\"连环漫画\",\"喜剧演员\",\"滑稽人物\",\"滑稽新闻\"]"}, {"r": 4681, "w": "excite", "d": "vt.[\"使兴奋\",\"激发\",\"刺激\",\"使紧张不安\"]"}, {"r": 4721, "w": "registration", "d": "n.[\"登记，注册\",\"挂号\",\"登记（或注册、挂号）人数\",\"<音>（管风琴）音栓配合（法）\"]"}, {"r": 4761, "w": "murderer", "d": "n.[\"谋杀犯，凶手\"]"}, {"r": 4801, "w": "vow", "d": "n.[\"誓言\",\"郑重宣布\"]  vt.& vi.[\"起誓，发誓\",\"郑重宣告\"]"}, {"r": 4841, "w": "applicant", "d": "n.[\"申请人，求职人\",\"请求者\"]"}, {"r": 4881, "w": "electron", "d": "n.[\"电子\"]"}, {"r": 4921, "w": "triangle", "d": "n.[\"三角形\",\"三人一组\",\"三角铁\",\"三角板\"]"}, {"r": 4961, "w": "ashamed", "d": "adj.[\"惭愧的，羞耻的，害臊的\",\"难为情\"]"}, {"r": 5001, "w": "optional", "d": "adj.[\"可选择的\",\"随意的，任意的\",\"非强制的\",\"选修科目\"]"}, {"r": 5041, "w": "predictable", "d": "adj.[\"可预言的\",\"可预报的\",\"可预见的\",\"可预料的\"]"}, {"r": 5081, "w": "frightened", "d": "adj.[\"害怕的\",\"受惊的\"]  v.[\"（使）惊恐( frighten的过去式和过去分词)\",\"吓唬\"]"}, {"r": 5121, "w": "sleeping", "d": "n.[\"睡眠\"]  adj.[\"睡着的\",\"供睡觉用的\",\"不要多事\",\"不要自找麻烦\"]  v.[\"为…提供床位( sleep的现在分词 )\"]"}, {"r": 5161, "w": "locally", "d": "adv.[\"在附近\",\"在本地\",\"当地地\",\"本地地\"]"}, {"r": 5201, "w": "sophomore", "d": "n.[\"（中等、专科学校或大学的）二年级学生\"]"}, {"r": 5241, "w": "gum", "d": "n.[\"口香糖\",\"树胶\",\"黏胶\",\"牙龈\"]  vt.& vi.[\"胶合\",\"涂以树胶\",\"使…有粘性\"]"}, {"r": 5281, "w": "clove", "d": "n.[\"丁香，丁香树\",\"[植]小鳞茎：如洋葱瓣或大蒜瓣儿\"]  v.[\"劈开，剁开( cleave的过去式)\"]"}, {"r": 5321, "w": "ripe", "d": "adj.[\"成熟的\",\"醇美可口的\",\"老练的\",\"时机成熟的\"]  v.[\"〈诗〉同“ripen“\"]"}, {"r": 5361, "w": "fertility", "d": "n.[\"（土地的）肥沃\",\"肥力\",\"丰产\",\"<生>繁殖力\"]"}, {"r": 5401, "w": "notorious", "d": "adj.[\"臭名昭著的\",\"臭名远扬的\",\"声名狼藉的\",\"恶名昭著\"]"}, {"r": 5441, "w": "sausage", "d": "n.[\"香肠，腊肠\",\"〈口〉德国人\"]"}, {"r": 5481, "w": "packet", "d": "n.[\"小包\",\"信息包\",\"邮船\",\"大笔款项\"]  vt.[\"包装，打包\",\"用邮船运送\"]"}, {"r": 5521, "w": "bastard", "d": "n.[\"私生子，杂种\",\"代用品，假冒品\",\"态度傲慢且令人讨厌的人\"]  adj.[\"杂种的，不纯粹的\",\"伪的，假的\",\"奇形怪状的，异常的\"]"}, {"r": 5561, "w": "swamp", "d": "n.[\"沼泽（地）\",\"湿地\"]  vt.[\"淹没\",\"使沉没\",\"使陷入困难\",\"忙得不可开交\"]  vi.[\"淹没，沉没\"]"}, {"r": 5601, "w": "recruitment", "d": "n.[\"征募新兵\",\"补充\",\"募集\"]"}, {"r": 5641, "w": "deployment", "d": "n.[\"部署\",\"调度\"]"}, {"r": 5681, "w": "briefing", "d": "n.[\"简报，简要情况\",\"简要指示\"]  v.[\"向…介绍基本情况(brief的现在分词)\"]"}, {"r": 5721, "w": "radically", "d": "adv.[\"根本地\",\"彻底地\",\"完全地\",\"激进地\"]"}, {"r": 5761, "w": "noisy", "d": "adj.[\"嘈杂的\",\"喧闹的\",\"充满噪音的\",\"吵吵闹闹的\"]  n.[\"响声\",\"嘈杂声\"]"}, {"r": 5801, "w": "oval", "d": "adj.[\"椭圆形的\",\"卵形的\"]  n.[\"椭圆形\",\"椭圆运动场（等）\",\"椭圆，美式足球用球\",\"[物]卵形线\"]"}, {"r": 5841, "w": "unpredictable", "d": "adj.[\"无法预言的\",\"不可预测的\"]  n.[\"不可预测的事\"]"}, {"r": 5881, "w": "vibrant", "d": "adj.[\"振动的\",\"响亮的\",\"充满生气的\"]"}, {"r": 5921, "w": "interestingly", "d": "adv.[\"有趣地\"]"}, {"r": 5961, "w": "preside", "d": "vi.[\"主持，指挥\",\"担任会议主席\"]"}, {"r": 6001, "w": "desktop", "d": "n.[\"桌面\"]"}, {"r": 6041, "w": "intermediate", "d": "adj.[\"中间的，中级的\"]  n.[\"中间物，中间分子，中间人\"]  vi.[\"调解：充当调解人，调解\",\"干涉\"]"}, {"r": 6081, "w": "responsive", "d": "adj.[\"应答的，响应的\",\"反应灵敏的\",\"共鸣的\",\"易反应的\"]"}, {"r": 6121, "w": "cuff", "d": "n.[\"袖口，护腕，裤子翻边\",\"<俚>手铐\",\"护腕\"]  vt.[\"给…上袖口（或翻边）\",\"用手铐铐\",\"击掌\",\"轻拍\"]"}, {"r": 6161, "w": "staple", "d": "n.[\"主要产品\",\"钉书钉，U 形钉\",\"主题，主要部份\",\"主食\"]  vt.[\"用钉书钉钉住\"]  adj.[\"最基本的，最重要的\"]"}, {"r": 6201, "w": "excel", "d": "vt.[\"优于，擅长\"]  vi.[\"胜过\"]"}, {"r": 6241, "w": "saucepan", "d": "n.[\"长柄而有盖子的深平底锅，炖锅\"]"}, {"r": 6281, "w": "paralyze", "d": "vt.[\"使瘫痪，使麻痹\",\"使不能正常活动\"]"}, {"r": 6321, "w": "hay", "d": "n.[\"干草\",\"少量的钱\",\"一种乡村舞蹈\",\"成果，酬报\"]  vt.[\"把（草）制成干草\",\"用干草喂\"]  vi.[\"割草晒干\"]"}, {"r": 6361, "w": "dart", "d": "vt.[\"投掷，投射\",\"使迅速突然移动\"]  vi.[\"向前冲，飞奔\"]  n.[\"飞镖，标枪\",\"急驰，飞奔\",\"（虫的）螯\",\"飞快的移动\"]"}, {"r": 6401, "w": "unified", "d": "adj.[\"(unify 的过去式和过去分词)\",\"统一的\",\"统一标准的\",\"一元化的\"]  v.[\"使联合( unify的过去式和过去分词 )\",\"使相同\",\"使一致\",\"统一\"]"}, {"r": 6441, "w": "fuzzy", "d": "adj.[\"模糊的\",\"绒毛般的，毛茸茸的\",\"糊涂的，含糊不清的\"]"}, {"r": 6481, "w": "hatch", "d": "vt.& vi.[\"孵化\",\"孵出，破壳而出\"]  vt.[\"秘密策划，（尤指）密谋\",\"使（小鸟、小鱼、小虫等）孵出\"]  n.[\"（船甲板或飞机底部装货物的）舱口\",\"开口\",\"（飞机或宇宙飞船的）舱门\",\"（尤指厨房和餐厅之间供传递食物的）两室之间的小窗口\"]"}, {"r": 6521, "w": "enormously", "d": "adv.[\"巨大地，庞大地\",\"大大\"]"}, {"r": 6561, "w": "distributor", "d": "n.[\"批发公司，批发商\",\"分发者，分配者\",\"[电]配电盘\"]"}, {"r": 6601, "w": "mumble", "d": "vt.& vi.[\"咕哝\",\"抿着嘴嚼\"]  n.[\"含糊的话\",\"咕哝\"]"}, {"r": 6641, "w": "real-life", "d": "adj.[\"实在的，现实的\"]"}, {"r": 6681, "w": "runoff", "d": "n.[\"决胜投票\",\"附加赛\",\"径流\"]"}, {"r": 6721, "w": "reign", "d": "vi.[\"当政，统治\",\"占主导地位\"]  vt.[\"想法、情感或氛围盛行，成为最显著的\"]  n.[\"君主的统治\",\"君主统治时期\",\"任期\",\"当政期\"]"}, {"r": 6761, "w": "inherently", "d": "adv.[\"天性地，固有地\"]"}, {"r": 6801, "w": "alarming", "d": "adj.[\"使人害怕的，扰乱人心的\",\"使人惊慌的\",\"告急的\",\"危言耸听的\"]  v.[\"警告(alarm的现在分词)\"]"}, {"r": 6841, "w": "sunshine", "d": "n.[\"阳光，日光\",\"晴朗，晴天\",\"太阳晒着的地方\",\"欢乐\"]"}, {"r": 6881, "w": "layoff", "d": "n.[\"停工，停止活动\",\"临时解雇\",\"操作停止\",\"失业期\"]"}, {"r": 6961, "w": "incumbent", "d": "adj.[\"在职的\",\"义不容辞的\",\"靠在[压在]上面的\",\"弯垂下来的\"]  n.[\"在职者\",\"教会中的任职者\",\"〈英〉教区牧师\"]"}, {"r": 7001, "w": "portrayal", "d": "n.[\"画像，肖像\",\"描述，描写\",\"叙述\"]"}, {"r": 7041, "w": "pigeon", "d": "n.[\"鸽子\",\"<非正式>易受骗的人\",\"<非正式>责任\"]"}, {"r": 7081, "w": "cardiac", "d": "adj.[\"心脏（病）的\",\"（胃的）贲门的\"]  n.[\"心脏病患者\",\"强心剂\"]"}, {"r": 7121, "w": "monastery", "d": "n.[\"修道院，寺院\",\"[复数]全体僧侣\"]"}, {"r": 7161, "w": "farewell", "d": "n.[\"告别，欢送\",\"欢送会\",\"告别辞\"]  int.[\"再见，再会\",\"一路平安\"]  adj.[\"告别的，送行的\"]"}, {"r": 7201, "w": "drunken", "d": "adj.[\"酒醉的\",\"常醉的\",\"酗酒的\"]"}, {"r": 7241, "w": "eerie", "d": "adj.[\"可怕的\",\"怪异的\",\"怪诞的\",\"胆小的\"]"}, {"r": 7281, "w": "bamboo", "d": "n.[\"竹子\",\"竹竿\",\"竹木家具\"]"}, {"r": 7321, "w": "pecan", "d": "n.[\"美洲山核桃\",\"美洲山核桃树\"]"}, {"r": 7401, "w": "ominous", "d": "adj.[\"不祥的，坏兆头的\",\"预兆的，预示的\"]"}, {"r": 7441, "w": "oblivious", "d": "adj.[\"忘却的\",\"健忘的\",\"不注意的\",\"不知道的\"]"}, {"r": 7481, "w": "fluctuation", "d": "n.[\"波动，涨落，起伏，[物]脉动\",\"动摇不定，踌躇\",\"[生]彷徨变异\"]"}, {"r": 7521, "w": "mystical", "d": "adj.[\"神秘的，奥秘的\",\"同mystic\",\"神奇\"]"}, {"r": 7561, "w": "demeanor", "d": "n.[\"<正>行为，举止，态度\"]"}, {"r": 7601, "w": "cleric", "d": "n.[\"牧师\",\"神职人员\"]  adj.[\"牧师的\",\"教士的\"]"}, {"r": 7641, "w": "monarch", "d": "n.[\"君主，帝王\",\"最高统治者\",\"[动]黑脉金斑蝶\"]"}, {"r": 7681, "w": "unrealistic", "d": "adj.[\"不切实际的\",\"不现实的\",\"空想的\",\"不实在的\"]"}, {"r": 7721, "w": "Lutheran", "d": "n.[\"路德会教友，信义会教友\"]"}, {"r": 7761, "w": "baseman", "d": "n.[\"一（二、三）垒手，守垒员\"]"}, {"r": 7801, "w": "forefront", "d": "n.[\"最前部\",\"活动中心\",\"前列\",\"第一线\"]"}, {"r": 7841, "w": "chestnut", "d": "n.[\"栗子\",\"栗色\",\"栗树\",\"栗色马\"]  adj.[\"栗色的\"]"}, {"r": 7881, "w": "sweaty", "d": "adj.[\"浑身出汗的\",\"汗臭的\",\"吃力的\",\"汗似的\"]"}, {"r": 7921, "w": "jack", "d": "n.[\"千斤顶\",\"[信]插孔，插座\",\"男人\",\"纸牌中的J\"]  vt.[\"提高，增加\",\"用千斤顶顶起\",\"抬起\",\"抬起，使想起\"]  vi.[\"<美>用篝灯打猎（或捕鱼）\"]"}, {"r": 7961, "w": "groundwater", "d": "n.[\"地下水\"]"}, {"r": 8001, "w": "midwestern", "d": "[\"美国中西部的，有中西部的特性的\"]"}, {"r": 8041, "w": "peacefully", "d": "adv.[\"平静地\",\"安宁地\"]"}, {"r": 8081, "w": "binding", "d": "n.[\"捆绑\",\"（衣服等的）镶边\",\"粘合剂\",\"书籍的封面\"]  adj.[\"捆绑的\",\"粘合的\",\"（书面材料）有约束力的\",\"应履行的\"]  v.[\"约束( bind的现在分词)\",\"装订\",\"捆绑\",\"（用长布条）缠绕\"]"}, {"r": 8121, "w": "concur", "d": "vi.[\"同意\",\"互助\",\"同时发生\",\"共同作用\"]"}, {"r": 8201, "w": "twenty-two", "d": "[\"二十二\"]"}, {"r": 8241, "w": "powerless", "d": "adj.[\"无力的，无能的\",\"无权力的\",\"虚弱的\",\"无资源的\"]"}, {"r": 8281, "w": "gravitational", "d": "adj.[\"万有引力的，重力的\",\"地心吸力的\"]"}, {"r": 8321, "w": "braid", "d": "n.[\"发辫\",\"辫子\",\"穗带\",\"编织物\"]  vt.[\"把（头发）编成辫子\",\"把…打缏子\",\"（用饰带等）镶缀\",\"编织\"]"}, {"r": 8361, "w": "candid", "d": "adj.[\"率直的，坦白的\",\"公正的\",\"偷拍的\"]"}, {"r": 8401, "w": "cut-off", "d": "n.[\"定点，取舍点\",\"截止\",\"界限\"]"}, {"r": 8441, "w": "borrower", "d": "n.[\"借钱人\",\"借用人，剽窃者\"]"}, {"r": 8481, "w": "malpractice", "d": "n.[\"<律>玩忽职守\",\"[医]治疗不当，滥治\",\"弊端\",\"藏掖\"]"}, {"r": 8521, "w": "self-confidence", "d": "n.[\"自信\",\"自信心\"]"}, {"r": 8561, "w": "inefficient", "d": "adj.[\"无效率的，无能的\",\"不称职的\",\"徒劳的\"]"}, {"r": 8601, "w": "faintly", "d": "adv.[\"微弱地\",\"隐约地\",\"虚弱地\",\"有点\"]"}, {"r": 8641, "w": "radiant", "d": "adj.[\"照耀的\",\"辐射的\",\"容光焕发的\"]  n.[\"光点\",\"[天]流星群的辐射点\"]"}, {"r": 8681, "w": "harness", "d": "n.[\"马具，挽具\",\"背带\",\"系带\"]  vt.[\"利用\",\"给（马等）套轭具\",\"控制\"]"}, {"r": 8721, "w": "insanity", "d": "n.[\"疯狂\",\"精神失常\",\"精神病\"]"}, {"r": 8761, "w": "revel", "d": "vi.[\"陶醉\",\"狂欢作乐\",\"扬扬得意\"]  n.[\"狂欢，作乐\",\"喧闹的宴会或庆典\"]"}, {"r": 8801, "w": "self-efficacy", "d": "[\"自我效能\"]"}, {"r": 8841, "w": "barge", "d": "n.[\"驳船\",\"游艇\",\"游览汽车\"]  vi.[\"（鲁莽而笨拙地）闯入\",\"蹒跚前进\"]  vt.[\"用驳船运，乘驳船去\"]"}, {"r": 8881, "w": "faulty", "d": "adj.[\"错误的\",\"有错误的，有过失的，有缺点的\",\"不完美的\"]"}, {"r": 8921, "w": "palpable", "d": "adj.[\"明白的，明显的\",\"可感知的，摸得出的\"]"}, {"r": 8961, "w": "startled", "d": "adj.[\"受惊吓的\"]  v.[\"使惊跳，使大吃一惊( startle的过去式和过去分词 )\"]"}, {"r": 9001, "w": "microbe", "d": "n.[\"微生物，细菌\"]"}, {"r": 9041, "w": "cost-effective", "d": "adj.[\"有成本效益的，划算的\",\"合算的（等于cost-efficient）\"]"}, {"r": 9081, "w": "gambler", "d": "n.[\"赌徒\",\"投机商人\"]"}, {"r": 9121, "w": "subgroup", "d": "n.[\"小群，隶属的小组织，子群\"]  vt.[\"给…加副标题\"]"}, {"r": 9161, "w": "time-consuming", "d": "adj.[\"费时的\",\"旷日持久的\",\"花费大量时间的\"]"}, {"r": 9201, "w": "lecturer", "d": "n.[\"（大学或学院中的）讲课者，授课者，（英美大学中的）讲师\",\"演讲者\"]"}, {"r": 9241, "w": "infiltrate", "d": "vt.& vi.[\"（使）渗透，（使）渗入\",\"（使）潜入\"]  n.[\"渗透物\"]"}, {"r": 9281, "w": "beacon", "d": "n.[\"灯塔，信号浮标\",\"烽火\",\"指路明灯\",\"警标，界标\"]  vt.[\"照亮，指引\",\"为…设置信标\",\"用灯指引\"]  vi.[\"像灯塔般照耀\"]"}, {"r": 9321, "w": "extraction", "d": "n.[\"取出，抽出\",\"血统，家世，出身\",\"[化]提取（法），萃取（法），回收物，提出物，精炼\",\"[数]开方，求根\"]"}, {"r": 9361, "w": "annoyance", "d": "n.[\"恼怒，烦恼\",\"使人烦恼的事，令人讨厌的人或事\"]"}, {"r": 9401, "w": "rediscover", "d": "vt.[\"再次（重新）发现\"]"}, {"r": 9441, "w": "refinement", "d": "n.[\"精炼，提纯，净化\",\"改良品\",\"细微的改良，极致\",\"优雅，高贵的动作\"]"}, {"r": 9481, "w": "bribe", "d": "vt.& vi.[\"贿赂，行贿\"]  n.[\"贿赂\",\"诱惑物\"]"}, {"r": 9521, "w": "testament", "d": "n.[\"[法] 遗嘱\",\"（基督教）圣约书\",\"确实的证明\",\"誓约\"]"}, {"r": 9561, "w": "generalize", "d": "vt.& vi.[\"概括，归纳\",\"推广，普及\",\"使一般化\",\"形成概念\"]  vt.[\"推广，普及\",\"使一般化\",\"概括\"]  vi.[\"形成概念\"]"}, {"r": 9601, "w": "frivolous", "d": "adj.[\"无价值的，毫无意义的\",\"轻率的，轻易\",\"不务正业的\",\"孩子气的\"]"}, {"r": 9641, "w": "blare", "d": "vi.[\"发出响而刺耳的声音\"]  vt.[\"嘟嘟地发出\",\"高声发出\",\"高声宣布\"]  n.[\"嘟嘟声，巨响\",\"（颜色等的）光泽\"]"}, {"r": 9681, "w": "baby-sitter", "d": "n.[\"代人临时照看婴孩者\"]"}, {"r": 9721, "w": "ascribe", "d": "vt.[\"把…归于，认为…是由于\",\"认为…具有\"]"}, {"r": 9761, "w": "intrusive", "d": "adj.[\"闯入的，打扰的\",\"侵入的\"]"}, {"r": 9801, "w": "revolver", "d": "n.[\"左轮手枪\",\"旋转者，旋转式装置\",\"[冶]转炉\"]"}, {"r": 9841, "w": "shortcut", "d": "n.[\"捷径，近路\",\"被切短的东西\"]"}, {"r": 9881, "w": "stillness", "d": "n.[\"静止\",\"不动\",\"沉静\",\"镇定自若\"]"}, {"r": 9921, "w": "illumination", "d": "n.[\"照明\",\"阐明，解释清楚\",\"<物>照度\",\"彩饰，图案花饰\"]"}, {"r": 9961, "w": "community-based", "d": ""}, {"r": 10001, "w": "gloss", "d": "n.[\"光彩，光泽，光滑\",\"注释，注解\",\"假象\"]  vt.[\"发光，给…加光泽\",\"注释，注解\",\"掩饰（错误）\"]"}, {"r": 10041, "w": "landslide", "d": "n.[\"[地]山崩\",\"大胜利\"]"}, {"r": 10081, "w": "chancellor", "d": "n.[\"大臣\",\"（某些美国大学的）校长\",\"（德国或奥地利的）总理\",\"（英国大学的）名誉校长\"]"}, {"r": 10121, "w": "acutely", "d": "adv.[\"尖锐地\",\"剧烈地\"]"}, {"r": 10161, "w": "penchant", "d": "n.[\"（强烈的）倾向，爱好，嗜好\"]"}, {"r": 10201, "w": "coward", "d": "n.[\"胆小鬼，懦夫\"]  adj.[\"怯懦的，胆小的\"]"}, {"r": 10241, "w": "antelope", "d": "n.[\"羚羊\",\"羚羊皮革\"]"}, {"r": 10281, "w": "blockade", "d": "n.[\"封锁\",\"封锁部队\",\"障碍物，阻碍物\"]  vt.[\"实行封锁\",\"阻塞，挡住\"]"}, {"r": 10321, "w": "encode", "d": "vt.[\"（将文字材料）译成密码\",\"编码，编制成计算机语言\"]"}, {"r": 10361, "w": "penguin", "d": "n.[\"企鹅\"]"}, {"r": 10401, "w": "queer", "d": "adj.[\"古怪的\",\"可疑的\",\"不适的\",\"〈俚〉同性恋的\"]  n.[\"<贬>同性恋者\",\"怪人\",\"伪造的货币\"]  vt.[\"搞糟\",\"使陷于不利地位\"]"}, {"r": 10441, "w": "interracial", "d": "adj.[\"人种间的，人种混合的\"]"}, {"r": 10481, "w": "baffle", "d": "vt.[\"使受挫折\",\"使困惑，使迷惑\",\"用隔音板隔音\",\"挡住（水流等）\"]  n.[\"隔板，挡板\",\"迷惑\",\"遮护物，阻碍体\",\"[军]迷彩\"]"}, {"r": 10521, "w": "manhood", "d": "n.[\"成年\",\"男子\",\"男子气概\",\"刚毅之气\"]"}, {"r": 10561, "w": "tether", "d": "n.[\"（拴牲畜用的）系绳\",\"限度，极限\"]  vt.[\"用绳拴住\",\"拘束，束缚\"]"}, {"r": 10601, "w": "perpetrate", "d": "vt.[\"犯（罪）\",\"做（恶）\"]"}, {"r": 10641, "w": "bystander", "d": "n.[\"旁观者\",\"局外人\",\"看热闹的人\"]"}, {"r": 10681, "w": "undeniable", "d": "adj.[\"不可否认的，无法抵赖的\",\"无可争辩的\",\"确实优秀的\",\"无可疵议的\"]"}, {"r": 10721, "w": "defending", "d": "v.[\"辩护( defend的现在分词 )\",\"保卫\",\"（足球、曲棍球等）防守\",\"进行辩护\"]"}, {"r": 10761, "w": "conduit", "d": "n.[\"[电]导管\",\"水道，沟渠\"]"}, {"r": 10801, "w": "onward", "d": "adj.[\"向前的，前进的\"]  adv.[\"向前\",\"在前面\"]"}, {"r": 10841, "w": "litany", "d": "n.[\"连祷\",\"[宗]启应祷文\",\"（英国国教公祷书中的）连祷文\",\"冗长而枯燥的陈述\"]"}, {"r": 10881, "w": "pertain", "d": "vi.[\"关于，有关\",\"适合\",\"附属，从属\"]"}, {"r": 10921, "w": "haunted", "d": "adj.[\"闹鬼的\",\"忧心忡忡的\"]  v.[\"“haunt”的过去式和过去分词\"]"}, {"r": 10961, "w": "dumbbell", "d": "n.[\"哑铃\",\"<美俚>蠢人\",\"笨蛋\",\"傻瓜\"]"}, {"r": 11001, "w": "handlebar", "d": "n.[\"手把，八字胡\"]"}, {"r": 11041, "w": "juxtaposition", "d": "n.[\"并置\",\"并列\",\"毗邻\"]"}, {"r": 11081, "w": "healthful", "d": "adj.[\"有益于健康的\"]"}, {"r": 11121, "w": "two-time", "d": "vt.[\"欺骗，出卖，对妻子（丈夫）不忠\"]"}, {"r": 11161, "w": "taxable", "d": "adj.[\"应纳税的\"]"}, {"r": 11201, "w": "bookcase", "d": "n.[\"书橱，书架，书柜\"]"}, {"r": 11241, "w": "melted", "d": "v.[\"（使）融[溶，熔]化( melt的过去式和过去分词 )\",\"溶解\",\"（使）消散，消失\",\"（使）软化，变得温柔\"]"}, {"r": 11281, "w": "detonate", "d": "vt.& vi.[\"（使）爆炸，引爆\",\"触发（一连串事件）\"]"}, {"r": 11321, "w": "pimp", "d": "n.[\"男妓，皮条客\",\"妓院老板\",\"引人作坏事的人\"]  vi.[\"拉皮条\",\"帮助干坏事\"]"}, {"r": 11361, "w": "coalesce", "d": "vi.[\"联合，合并\"]"}, {"r": 11401, "w": "compressed", "d": "adj.[\"压缩的\",\"<生>扁长形的\"]  v.[\"压紧，压缩( compress的过去式和过去分词 )\",\"精简\"]"}, {"r": 11441, "w": "credit-card", "d": ""}, {"r": 11481, "w": "flail", "d": "vt.[\"用连枷打\",\"鞭打\",\"抽打\"]  vi.[\"用连枷打\",\"鞭打\"]  n.[\"连枷（脱粒用的工具）\",\"扫雷装置\"]"}, {"r": 11521, "w": "pun", "d": "n.[\"双关语\",\"俏皮话\"]  vi.[\"说双关语\"]  vt.[\"捣结实\"]"}, {"r": 11561, "w": "marching", "d": "v.[\"（坚定地向某地）前进( march的现在分词 )\",\"进军\",\"进展\",\"游行示威（或抗议）\"]"}, {"r": 11601, "w": "cello", "d": "n.[\"大提琴\"]"}, {"r": 11641, "w": "bigotry", "d": "n.[\"偏执，顽固，偏执的行为\",\"盲从\"]"}, {"r": 11681, "w": "preparatory", "d": "adj.[\"预备的，准备的，筹备的\",\"初步的\"]  adv.[\"在先前，作为准备\"]  n.[\"<美>大学预科\",\"<英>私立预科学校\"]"}, {"r": 11721, "w": "complimentary", "d": "adj.[\"表示敬意的\",\"赞美的\",\"恭维的\",\"赠送的\"]  adv.[\"崇敬地，赞美地，赞许地\"]"}, {"r": 11761, "w": "revamp", "d": "vt.[\"将（某物）更新，翻新\",\"修补，修改\",\"修理\"]  n.[\"改进\",\"换新鞋面\"]"}, {"r": 11801, "w": "replete", "d": "adj.[\"饱食的\",\"充满的，供应充足的\"]  n.[\"[昆] 贮蜜蚁\"]"}, {"r": 11841, "w": "clot", "d": "vt.& vi.[\"凝结\",\"拥塞\"]  n.[\"凝块\",\"（人，动物等的）聚集\"]"}, {"r": 11881, "w": "cardiologist", "d": "n.[\"心脏病专家\"]"}, {"r": 11921, "w": "doubly", "d": "adv.[\"加倍地，双倍地\",\"两方面地\",\"有双重原因造成\",\"倍增\"]"}, {"r": 11961, "w": "pre-service", "d": ""}, {"r": 12001, "w": "pennant", "d": "n.[\"校旗\",\"锦标旗\",\"长三角旗\",\"（船上用的）信号旗\"]"}, {"r": 12041, "w": "reconnect", "d": "vt.[\"再供应（水电等），再接通（电话）\"]"}, {"r": 12081, "w": "upland", "d": "adj.[\"高地的，住在高地的\"]  n.[\"高地，山地\"]"}, {"r": 12121, "w": "stockpile", "d": "n.[\"（原料，食品等的）储备，准备急用的备用原料或物资，贮存\",\"资源，富源，矿藏量\",\"（为战争准备的）核武器\"]  vt.[\"大量贮备\"]"}, {"r": 12161, "w": "melancholy", "d": "n.[\"忧郁\",\"悲哀\",\"愁思\",\"闷闷不乐\"]  adj.[\"忧郁的\",\"悲伤的\",\"凄凉的\",\"阴沉的\"]"}, {"r": 12201, "w": "cornfield", "d": "n.[\"<美>玉米田，<英>小麦田\"]"}, {"r": 12241, "w": "brownie", "d": "n.[\"核仁巧克力饼\",\"巧克力蛋糕\",\"6-8岁的女童子军\",\"棕仙（传说中夜间帮助做家务的小精灵）\"]"}, {"r": 12281, "w": "symmetrical", "d": "adj.[\"对称的，匀称的\"]"}, {"r": 12321, "w": "typing", "d": "n.[\"打字，键入\",\"打印本，打印文件\"]  v.[\"打字( type的现在分词)\",\"按类型把…归类\"]"}, {"r": 12361, "w": "buttermilk", "d": "n.[\"脱脂乳，酪乳\"]"}, {"r": 12401, "w": "gratifying", "d": "adj.[\"悦人的，令人满足的\"]  v.[\"使高兴，使满意( gratify的现在分词 )\"]"}, {"r": 12441, "w": "wearily", "d": "adv.[\"疲倦地\",\"消沉地\",\"厌倦地\",\"不耐烦地\"]"}, {"r": 12481, "w": "masking", "d": "n.[\"化装\"]  v.[\"用面具遮住，掩盖，掩饰( mask的现在分词 )\"]"}, {"r": 12521, "w": "hammock", "d": "n.[\"吊床\"]"}, {"r": 12561, "w": "resultant", "d": "adj.[\"因而发生的，结果必然产生的\",\"[物]组合的，合成的\"]  n.[\"结果，后果\",\"合力，合成力，合成[运动]，[数]结式，消元式，[物]合量，组合，[化]生成物，（反应）产物\",\"[数学] 合矢量：等价于一组向量的一个单个向量\"]"}, {"r": 12601, "w": "disobedience", "d": "n.[\"不服从，不顺从\",\"违抗，违反\"]"}, {"r": 12641, "w": "omen", "d": "n.[\"前兆\",\"征兆\",\"预兆\",\"兆头\"]  vt.[\"预示\",\"预告\",\"有…的前兆\"]"}, {"r": 12681, "w": "broil", "d": "vt.[\"（用火）烤（焙、炙等）\",\"使卷入争吵\",\"使混乱\"]  vi.[\"被烤（或炙）\",\"发怒\",\"激动\"]  vt.& vi.[\"（使）感到很热\",\"（使）受到灼热，（被）暴晒\"]  n.[\"烤炙食品\"]"}, {"r": 12721, "w": "labeled", "d": "[\"[医]标记的，示踪的\"]"}, {"r": 12761, "w": "windowsill", "d": "n.[\"窗沿，窗台\"]"}, {"r": 12801, "w": "mystic", "d": "n.[\"神秘主义者\"]  adj.[\"神秘的\",\"神秘主义（者）的\"]"}, {"r": 12841, "w": "fang", "d": "n.[\"尖牙\",\"（蛇的）毒牙\",\"犬牙\",\"蜘蛛的螯角\"]"}, {"r": 12881, "w": "intersperse", "d": "vt.[\"散布，散置\",\"点缀\"]"}, {"r": 12921, "w": "husk", "d": "n.[\"外皮，荚，壳\"]"}, {"r": 12961, "w": "presumed", "d": "v.[\"以为，假定( presume的过去式和过去分词 )\",\"推定\",\"妄行\",\"冒昧地做某事\"]"}, {"r": 13001, "w": "flattering", "d": "adj.[\"谄媚的，讨好的，谄媚的\"]  v.[\"阿谀，向…奉承，使高兴( flatter的现在分词)\"]"}, {"r": 13041, "w": "daycare", "d": "n.[\"日托，幼儿园\"]"}, {"r": 13081, "w": "absently", "d": "adv.[\"健忘地，心不在焉地\"]"}, {"r": 13121, "w": "doubling", "d": "n.[\"加倍，成双\"]  v.[\"把…对折，折叠( double的现在分词 )\",\"是…的两倍\",\"（使）加倍\",\"兼任\"]"}, {"r": 13161, "w": "stationery", "d": "n.[\"文具\",\"办公用品\",\"信纸，信封\",\"文房四宝\"]"}, {"r": 13201, "w": "snuff", "d": "vt.[\"剪（烛）花\",\"扑灭，熄灭（烛光）\",\"消灭，扼杀\",\"嗅\"]  vi.[\"死去\",\"熄灭（火焰）\",\"（伤风鼻阻时）呼呼地吸（气），吸入\",\"闻，嗅\"]  n.[\"烛花，灯花\",\"鼻烟\",\"气息\"]"}, {"r": 13281, "w": "dabble", "d": "vi.[\"涉猎\",\"涉足\",\"浅尝\"]  vt.[\"玩水，嬉水\",\"弄湿，溅湿\",\"蘸\",\"涉猎\"]"}, {"r": 13321, "w": "rigidity", "d": "n.[\"坚硬\",\"严格\",\"刚直\",\"死板\"]"}, {"r": 13361, "w": "extravaganza", "d": "n.[\"内容狂妄的作品\",\"盛大表演（比赛），盛事\",\"狂文，狂诗，狂曲\",\"狂妄的言行\"]"}, {"r": 13401, "w": "thickly", "d": "adv.[\"厚厚地\",\"浓密地\",\"繁茂地\",\"频繁地\"]"}, {"r": 13441, "w": "oblique", "d": "adj.[\"斜，倾斜的\",\"[数]非直角的，非垂直的，斜角，斜面\",\"拐弯抹角的，间接的\",\"暗中的\"]  v.[\"倾斜\"]  n.[\"倾斜物\"]"}, {"r": 13481, "w": "aspen", "d": "n.[\"山杨\"]  adj.[\"山杨的\",\"颤抖的\"]"}, {"r": 13521, "w": "enriched", "d": "v.[\"使富有( enrich的过去式和过去分词 )\",\"使富裕\",\"充实\",\"使丰富\"]"}, {"r": 13561, "w": "ridiculously", "d": "adv.[\"可笑地，荒谬地\"]"}, {"r": 13601, "w": "redhead", "d": "n.[\"红发的人\",\"红头啄木鸟\"]"}, {"r": 13641, "w": "pelt", "d": "vt.[\"（连续地）投掷\",\"连续攻击\",\"剥皮\"]  vi.[\"（连续地）投掷\",\"（雨等）急降\",\"开火\",\"<口>迅猛前进\"]  n.[\"毛皮\",\"抨击，打击\",\"投掷\"]"}, {"r": 13681, "w": "incubator", "d": "n.[\"孵化器\",\"（用于放置早产婴儿的）恒温箱\"]"}, {"r": 13721, "w": "moron", "d": "n.[\"<口>傻子\",\"痴愚者（指心理年龄在8至12岁的成年人）\"]"}, {"r": 13761, "w": "mottled", "d": "adj.[\"杂色的，斑驳的，斑点的\"]  v.[\"使成杂色，使有斑点( mottle的过去式和过去分词 )\"]"}, {"r": 13801, "w": "picker", "d": "n.[\"采摘者\",\"挖掘者\",\"采摘机\",\"采摘工具\"]"}, {"r": 13841, "w": "ethereal", "d": "adj.[\"天上的\",\"轻飘的\",\"[化]乙醚的\"]"}, {"r": 13881, "w": "vaccinate", "d": "vt.[\"给…接种疫苗\"]  vi.[\"注射疫苗，接种疫苗\"]"}, {"r": 13921, "w": "crossword", "d": "n.[\"纵横字谜\"]"}, {"r": 13961, "w": "illustrated", "d": "n.[\"有插画的报章杂志\"]  adj.[\"有插图的\"]  v.[\"给…加插图（ illustrate的过去式和过去分词 ）\",\"说明\",\"表明\",\"（用示例、图画等）说明\"]"}, {"r": 14001, "w": "iodine", "d": "n.[\"<化>碘\"]"}, {"r": 14041, "w": "stanza", "d": "n.[\"（诗）节\",\"（戏剧等在某一地点的）演出期\",\"〈美〉运动比赛的段落\",\"局，场\"]"}, {"r": 14081, "w": "jiggle", "d": "vt.& vi.[\"轻摇，抖动\"]  vt.[\"坐立不安\"]  n.[\"轻摇\"]"}, {"r": 14121, "w": "mid-morning", "d": ""}, {"r": 14161, "w": "fecal", "d": "adj.[\"排泄物的，渣滓的，糟粕的\"]"}, {"r": 14241, "w": "deceit", "d": "n.[\"欺骗，欺诈\",\"诡计\",\"谎言\"]"}, {"r": 14281, "w": "riveting", "d": "adj.[\"饶有趣味的，非常精彩的，引人入胜的\"]  n.[\"铆接（法）\"]  v.[\"铆接( rivet的现在分词 )\",\"把…固定住\",\"吸引\",\"引起某人的注意\"]"}, {"r": 14321, "w": "insurmountable", "d": "adj.[\"不可逾越的\",\"不能克服的\"]"}, {"r": 14361, "w": "assail", "d": "vt.[\"攻击，袭击\",\"（用言论）指责\",\"质问\",\"着手解决\"]"}, {"r": 14401, "w": "hiding", "d": "n.[\"躲藏，隐匿\",\"<口>殴打\"]"}, {"r": 14441, "w": "tutorial", "d": "n.[\"个别辅导时间\",\"教程，辅导材料\",\"使用说明书\",\"辅导课\"]  adj.[\"导师的\",\"私人教师的\",\"辅导的\"]"}, {"r": 14481, "w": "gynecologist", "d": "n.[\"妇科医生\"]"}, {"r": 14521, "w": "hostel", "d": "n.[\"旅社，招待所\",\"〈英古〉旅馆\",\"〈英〉大学宿舍\"]  vi.[\"留宿于招待所\"]"}, {"r": 14561, "w": "messaging", "d": "[\"报文发送\"]"}, {"r": 14601, "w": "shrivel", "d": "vt.& vi.[\"（因热力，严寒、干燥、年老等而）枯萎，皱缩\"]"}, {"r": 14641, "w": "banjo", "d": "n.[\"班卓琴\"]"}, {"r": 14681, "w": "eminently", "d": "adv.[\"突出地\",\"显著地\",\"不寻常地\"]"}, {"r": 14721, "w": "indecent", "d": "adj.[\"粗鄙的，猥亵的\",\"不适当的，不合适的\",\"不礼貌的\",\"不得体的\"]"}, {"r": 14761, "w": "stoic", "d": "n.[\"禁欲主义者，恬淡寡欲的人，不以苦乐为意的人\"]  adj.[\"坚忍的，苦修的\"]"}, {"r": 14801, "w": "beeper", "d": "n.[\"能发出哔哔声音的仪器\"]"}, {"r": 14841, "w": "confectioner", "d": "n.[\"糖果制造人，糖果店\"]"}, {"r": 14881, "w": "tidbit", "d": "n.[\"（美味食物的）一口\",\"小片珍馐\",\"趣闻\",\"小栏报导\"]"}, {"r": 14921, "w": "categorically", "d": "adv.[\"明确地，直截了当地\",\"概\",\"断然\"]"}, {"r": 14961, "w": "entryway", "d": "n.[\"入口通道\"]"}, {"r": 15001, "w": "equestrian", "d": "adj.[\"骑马的，马的\",\"骑术的\",\"骑士团的\"]  n.[\"骑手\",\"骑马者\",\"马戏演员\"]"}, {"r": 15041, "w": "inverse", "d": "adj.[\"相反的\",\"逆向的\",\"倒转的\"]  n.[\"相反\",\"倒转\",\"相反的事物\"]  vt.[\"使倒转\",\"使颠倒\"]"}, {"r": 15081, "w": "repent", "d": "vt.& vi.[\"对（自己的所为）感到懊悔或忏悔\"]  adj.[\"[植] 匍匐生根的\",\"[动] 爬行的\"]"}, {"r": 15121, "w": "immobilize", "d": "vt.[\"使不动，使固定\"]"}, {"r": 15161, "w": "sleigh", "d": "n.[\"雪橇\"]  vi.[\"乘雪橇\"]"}, {"r": 15201, "w": "fibrous", "d": "adj.[\"含纤维的，纤维性的\"]"}, {"r": 15241, "w": "flooded", "d": "adj.[\"被水淹的\"]  v.[\"（使）充斥( flood的过去式和过去分词 )\",\"大量涌来\",\"（使）为水淹没\",\"使大受感动\"]"}, {"r": 15281, "w": "lackluster", "d": "n.[\"无光泽，暗淡\"]  adj.[\"无光泽的，暗淡的\"]"}, {"r": 15321, "w": "mastectomy", "d": "n.[\"乳房切除术\"]"}, {"r": 15361, "w": "depositor", "d": "n.[\"存放人，存款人\",\"寄托者\",\"沉淀器\"]"}, {"r": 15401, "w": "convulsion", "d": "n.[\"[医]抽搐\",\"大笑\",\"震动\",\"动乱\"]"}, {"r": 15441, "w": "Irishman", "d": "n.[\"爱尔兰人\"]"}, {"r": 15481, "w": "overheated", "d": "adj.[\"过热的\"]  v.[\"使过热，变得过热( overheat的过去式和过去分词 )\"]"}, {"r": 15521, "w": "co-chairman", "d": "n.[\"联合主席，共同主席\"]"}, {"r": 15561, "w": "maestro", "d": "n.[\"<意>音乐大师（尤指名指挥）\",\"艺术大师\",\"乐队指挥\",\"（球队等的）领队\"]"}, {"r": 15601, "w": "computer-based", "d": "[\"[医]以计算机为基础的\"]"}, {"r": 15641, "w": "unyielding", "d": "adj.[\"坚硬的，不能弯曲的，不屈的\",\"刚强\",\"不屈服\",\"倔强\"]"}, {"r": 15681, "w": "hyena", "d": "n.[\"鬣狗\"]"}, {"r": 15721, "w": "paralyzed", "d": "adj.[\"瘫痪的，麻痹的\"]  v.[\"使瘫痪，使麻痹( paralyze的过去式和过去分词 )\",\"使不能正常活动\"]"}, {"r": 15761, "w": "extramarital", "d": "adj.[\"私通的\",\"婚外\"]"}, {"r": 15801, "w": "assertiveness", "d": "n.[\"过份自信，武断\"]"}, {"r": 15841, "w": "wayside", "d": "n.[\"路边\"]  adj.[\"路边的\"]"}, {"r": 15881, "w": "formalize", "d": "vt.[\"使正式，形式化\",\"拘泥形式\"]  vi.[\"拘泥于形式\"]"}, {"r": 15921, "w": "sorcerer", "d": "n.[\"男巫，方士，施魔法者\"]"}, {"r": 15961, "w": "ameliorate", "d": "vt.[\"<正，夸>（使）改善，改进\",\"减轻（痛苦等）\",\"改良\"]  vi.[\"变得更好\"]"}, {"r": 16001, "w": "providing", "d": "conj.[\"如果\",\"假如\",\"在…条件下\",\"倘若\"]  v.[\"提供，供给，供应( provide的现在分词)\",\"规定\",\"提供[(+for)]\",\"装备\"]"}, {"r": 16041, "w": "merciful", "d": "adj.[\"仁慈的，宽恕的，温和的，（情形）良好的，顺利的，（处罚）宽大的\"]"}, {"r": 16081, "w": "landlady", "d": "n.[\"女房东\",\"女地主\",\"（旅店或寄宿舍的）女店主\"]"}, {"r": 16121, "w": "stopper", "d": "n.[\"阻塞物，（尤指）瓶塞\"]  vt.[\"（用瓶塞）塞住\"]"}, {"r": 16161, "w": "irrevocably", "d": "adv.[\"不能取消地，不能撤回地\"]"}, {"r": 16201, "w": "satisfactorily", "d": "adv.[\"令人满意地\",\"心安理得地\",\"可靠地\"]"}, {"r": 16241, "w": "radiologist", "d": "n.[\"放射线学者\"]"}, {"r": 16281, "w": "custodial", "d": "adj.[\"保管的，保管人的\"]  n.[\"圣物保管容器\"]"}, {"r": 16321, "w": "paving", "d": "n.[\"块石面路\"]  v.[\"铺( pave的现在分词 )\",\"为…铺平道路\"]"}, {"r": 16361, "w": "tiresome", "d": "adj.[\"令人生厌的\",\"无聊的\"]"}, {"r": 16401, "w": "tuning", "d": "n.[\"调谐，调整，调音\"]  v.[\"调音( tune的现在分词 )\",\"调整\",\"（给收音机、电视等）调谐\",\"使协调\"]"}, {"r": 16441, "w": "commercialize", "d": "vt.[\"（尤指不择手段地）利用…牟利，商业化\"]"}, {"r": 16481, "w": "snowman", "d": "n.[\"雪人\"]"}, {"r": 16521, "w": "subconscious", "d": "adj.[\"下意识的\",\"潜意识的\"]"}, {"r": 16561, "w": "preservationist", "d": "n.[\"（对野生动物、自然区、古迹和传统事物等的）保护主义者\"]"}, {"r": 16601, "w": "driftwood", "d": "n.[\"流木，浮木，（社会变动所产生的）无用的人\",\"流送材\"]"}, {"r": 16641, "w": "reticence", "d": "n.[\"不轻易暴露想法或感情\",\"沉默\",\"不爱说话\",\"含蓄\"]"}, {"r": 16681, "w": "tertiary", "d": "adj.[\"第三的\",\"<医>第三期的\",\"(T-)<地>第三纪的\",\"<化>叔的\"]  n.[\"(T-)<地>第三纪\",\"第三系\",\"三期梅毒病害\",\"<宗>第三级教士\"]"}, {"r": 16721, "w": "deformation", "d": "n.[\"变形\",\"[语]词的变形\",\"[地]金属等（在压力作用下）变形\",\"形态损伤，形状损毁\"]"}, {"r": 16761, "w": "grammatical", "d": "adj.[\"语法上的，符合语法规则的\"]"}, {"r": 16801, "w": "dictatorial", "d": "adj.[\"独裁的\",\"专横傲慢的\",\"盛气凌人的\",\"独断\"]"}, {"r": 16841, "w": "narcissism", "d": "n.[\"自我陶醉，自恋\"]"}, {"r": 16881, "w": "apocalypse", "d": "n.[\"世界毁灭\",\"大灾变\",\"末世\"]"}, {"r": 16921, "w": "oncology", "d": "n.[\"肿瘤学\"]"}, {"r": 16961, "w": "amulet", "d": "n.[\"护身符\"]"}, {"r": 17001, "w": "detritus", "d": "n.[\"（侵蚀形成的）岩屑\",\"碎石\",\"瓦砾\",\"风化物\"]"}, {"r": 17081, "w": "inattention", "d": "n.[\"不注意\",\"漫不经心\",\"心不在焉\",\"粗心\"]"}, {"r": 17121, "w": "starched", "d": "adj.[\"浆硬的，硬挺的，拘泥刻板的\"]  v.[\"把（衣服、床单等）浆一浆( starch的过去式和过去分词 )\"]"}, {"r": 17161, "w": "unprofitable", "d": "adj.[\"无利益的\",\"没有用的\",\"无益\"]"}, {"r": 17201, "w": "staid", "d": "adj.[\"古板的，保守的，一本正经的\"]  adv.[\"一本正经地\"]"}, {"r": 17241, "w": "premarital", "d": "adj.[\"婚前的\"]"}, {"r": 17281, "w": "registrar", "d": "n.[\"登记员\",\"教务主任\",\"政券登记员\",\"医院接收员\"]"}, {"r": 17321, "w": "internment", "d": "n.[\"拘留\"]"}, {"r": 17361, "w": "priestess", "d": "n.[\"女祭司\"]"}, {"r": 17401, "w": "bulwark", "d": "n.[\"堡垒\",\"保障\",\"支柱\",\"舷墙\"]  vt.[\"筑垒保卫\",\"保护，使安全\"]"}, {"r": 17441, "w": "rapprochement", "d": "n.[\"友好，和睦\",\"〈外〉和解\",\"恢复邦交\"]"}, {"r": 17481, "w": "agribusiness", "d": "n.[\"农业综合企业\"]"}, {"r": 17521, "w": "drumbeat", "d": "n.[\"鼓声，打鼓\"]"}, {"r": 17561, "w": "knotted", "d": "adj.[\"有节的，多节的，棘手的\"]"}, {"r": 17601, "w": "conquering", "d": "v.[\"攻克( conquer的现在分词 )\",\"征服\",\"破除\",\"克服\"]"}];
+const TOTAL_WORDS = 17634;
+const CEFR_LEVELS = {
+  'A1': { min: 0, max: 1000 },
+  'A2': { min: 1000, max: 2000 },
+  'B1': { min: 2000, max: 3000 },
+  'B2': { min: 3000, max: 5000 },
+  'C1': { min: 5000, max: 8000 },
+  'C2': { min: 8000, max: TOTAL_WORDS }
+};
+
+let state = null;
+let lastResult = null;
+
+function initState(mode, prevResult) {
+  if (mode === 'advanced') {
+    return {
+      mode: 'advanced',
+      pool: DENSE_POOL.concat(POOL), // use both pools for more coverage
+      tested: [],
+      testedWords: new Set(prevResult?.testedWords || []), // carry over already-tested words
+      estimates: [],
+      phase: 'adaptive',
+      questionIndex: 0,
+      target: null,
+      maxQuestions: 40,
+      prevEstimate: prevResult?.estimate || 8800,
+      refinementRange: 3000
+    };
+  } else {
+    return {
+      mode: 'quick',
+      pool: POOL,
+      tested: [],
+      testedWords: new Set(),
+      estimates: [],
+      phase: 'scan',
+      questionIndex: 0,
+      bandIndex: 0,
+      target: null,
+      bands: [
+        { min: 10, max: 100 },
+        { min: 100, max: 250 },
+        { min: 250, max: 500 },
+        { min: 500, max: 1000 },
+        { min: 1000, max: 2000 },
+        { min: 2000, max: 3500 },
+        { min: 3500, max: 6000 },
+        { min: 6000, max: 10000 },
+        { min: 10000, max: 14000 },
+        { min: 14000, max: 16000 },
+        { min: 16000, max: 17600 }
+      ]
+    };
+  }
+}
+
+function isWordTested(word) {
+  return state.testedWords.has(word.w.toLowerCase());
+}
+
+function markWordTested(word) {
+  state.testedWords.add(word.w.toLowerCase());
+}
+
+function pickRandom(arr) {
+  if (!arr || arr.length === 0) return null;
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function selectWord() {
+  if (state.mode === 'quick') {
+    if (state.phase === 'scan') {
+      if (state.bandIndex >= state.bands.length) return null;
+      const band = state.bands[state.bandIndex];
+      const candidates = state.pool.filter(w => w.r >= band.min && w.r <= band.max && !isWordTested(w));
+      state.bandIndex++;
+      return pickRandom(candidates);
+    } else {
+      // Refine phase: use adaptive binary search around the estimated boundary
+      const halfRange = 3000;
+      const lo = Math.max(1, state.target - halfRange);
+      const hi = Math.min(TOTAL_WORDS, state.target + halfRange);
+      // Try to pick words near the boundary first (within ±1500), then expand
+      for (const spread of [1500, 3000, 5000, TOTAL_WORDS]) {
+        const rLo = Math.max(1, state.target - spread);
+        const rHi = Math.min(TOTAL_WORDS, state.target + spread);
+        const candidates = state.pool.filter(w => w.r >= rLo && w.r <= rHi && !isWordTested(w));
+        if (candidates.length > 0) return pickRandom(candidates);
+      }
+      return null; // all words exhausted
+    }
+  } else {
+    // Advanced mode: focused within user-specified range
+    const minR = Math.max(1, state.prevEstimate - state.refinementRange);
+    const maxR = Math.min(TOTAL_WORDS, state.prevEstimate + state.refinementRange);
+    // Try focused range first, then widen if needed
+    const candidates = state.pool.filter(w => w.r >= minR && w.r <= maxR && !isWordTested(w));
+    if (candidates.length > 0) return pickRandom(candidates);
+    // Widen search by 50%
+    const wideMin = Math.max(1, state.prevEstimate - state.refinementRange * 1.5);
+    const wideMax = Math.min(TOTAL_WORDS, state.prevEstimate + state.refinementRange * 1.5);
+    const wideCandidates = state.pool.filter(w => w.r >= wideMin && w.r <= wideMax && !isWordTested(w));
+    if (wideCandidates.length > 0) return pickRandom(wideCandidates);
+    return null; // exhausted
+  }
+}
+
+function getCEFRLevel(estimate) {
+  for (const [level, range] of Object.entries(CEFR_LEVELS)) {
+    if (estimate >= range.min && estimate < range.max) {
+      return level;
+    }
+  }
+  return 'C2';
+}
+
+function estimate() {
+  if (state.tested.length === 0) return 8800;
+  const responses = state.tested.map((w, i) => ({ rank: w.r, response: w.response }));
+  let bestEstimate = 8800;
+  let bestLL = -Infinity;
+  for (let theta = 100; theta <= 17000; theta += 50) {
+    let ll = 0;
+    for (const resp of responses) {
+      const p = 1 / (1 + Math.exp(0.001 * (resp.rank - theta)));
+      ll += resp.response * Math.log(Math.max(p, 1e-10)) + (1 - resp.response) * Math.log(Math.max(1 - p, 1e-10));
+    }
+    if (ll > bestLL) {
+      bestLL = ll;
+      bestEstimate = theta;
+    }
+  }
+  return Math.round(bestEstimate);
+}
+
+function computeCI() {
+  const est = estimate();
+  const responses = state.tested.map((w, i) => ({ rank: w.r, response: w.response }));
+  let fisherInfo = 0;
+  const beta = 0.001;
+  for (const resp of responses) {
+    const p = 1 / (1 + Math.exp(beta * (resp.rank - est)));
+    fisherInfo += beta * beta * p * (1 - p);
+  }
+  const se = fisherInfo > 0 ? 1 / Math.sqrt(fisherInfo) : 1000;
+  const z = 1.96;
+  return [Math.max(0, Math.round(est - z * se)), Math.min(TOTAL_WORDS, Math.round(est + z * se))];
+}
+
+function nextWord() {
+  if (state.mode === 'quick') {
+    // Check if scan phase is done (all 11 bands tested)
+    if (state.phase === 'scan' && state.bandIndex >= state.bands.length) {
+      state.phase = 'refine';
+      state.target = estimate();
+      state.refineCount = 0; // track refine-phase questions separately
+    }
+    // Check if refine phase is done (30 more questions or 41 total)
+    if (state.phase === 'refine' && (state.refineCount || 0) >= 30) {
+      showResults();
+      return;
+    }
+    // Safety: overall cap at 50 questions
+    if (state.questionIndex >= 50) {
+      showResults();
+      return;
+    }
+  } else {
+    if (state.questionIndex >= state.maxQuestions) {
+      showResults();
+      return;
+    }
+  }
+  const word = selectWord();
+  if (!word) {
+    showResults();
+    return;
+  }
+  document.getElementById('word-display').textContent = word.w;
+  document.getElementById('definition').textContent = word.d;
+  document.getElementById('definition').classList.remove('show');
+  document.getElementById('show-def-btn').style.display = 'block';
+  const totalExpected = state.mode === 'quick' ? (11 + 30) : state.maxQuestions;
+  const progress = Math.round((state.questionIndex / totalExpected) * 100);
+  document.getElementById('progress-fill').style.width = Math.min(progress, 100) + '%';
+  document.getElementById('progress-label').textContent = `Word ${state.questionIndex + 1} / ~${totalExpected}`;
+  const phaseText = state.mode === 'quick' && state.phase === 'scan' ? 'Scanning' : (state.mode === 'quick' ? 'Refining' : 'Focused Testing');
+  document.getElementById('phase-label').textContent = phaseText;
+  state.currentWord = word;
+}
+
+function answer(response) {
+  if (!state.currentWord) return;
+  state.tested.push({ ...state.currentWord, response });
+  markWordTested(state.currentWord);
+  state.questionIndex++;
+  if (state.phase === 'refine') {
+    state.refineCount = (state.refineCount || 0) + 1;
+  }
+  state.currentWord = null; // prevent double-answer
+  nextWord();
+}
+
+function showDefinition() {
+  const def = document.getElementById('definition');
+  def.classList.toggle('show');
+  document.getElementById('show-def-btn').style.display = 'none';
+}
+
+function showResults() {
+  const est = estimate();
+  const ci = computeCI();
+  const cefr = getCEFRLevel(est);
+  const isAdvanced = state.mode === 'advanced';
+  let comparisonHtml = '';
+  if (isAdvanced && lastResult) {
+    comparisonHtml = `
+      <div class="comparison-box">
+        <div class="compare-item">
+          <div class="compare-label">Quick Test</div>
+          <div class="compare-value old">${lastResult.estimate.toLocaleString()}</div>
+        </div>
+        <div class="compare-item">
+          <div class="compare-label">After Advanced Test</div>
+          <div class="compare-value">${est.toLocaleString()}</div>
+        </div>
+      </div>
+    `;
+  }
+  const ciWidth = ci[1] - ci[0];
+  let mathHtml = `
+    <div class="confidence-note">
+      <strong>95% Confidence Interval:</strong> Your vocabulary is between ${ci[0].toLocaleString()} and ${ci[1].toLocaleString()} words.
+    </div>
+  `;
+  const result = {
+    estimate: est,
+    confidence: ci,
+    totalResponses: state.tested.length,
+    testedWords: Array.from(state.testedWords) // save for advanced test to inherit
+  };
+  lastResult = result;
+  const pct = Math.min(100, (est / TOTAL_WORDS) * 100);
+  const chartBands = [
+    { min: 10, max: 100 },
+    { min: 100, max: 250 },
+    { min: 250, max: 500 },
+    { min: 500, max: 1000 },
+    { min: 1000, max: 2000 },
+    { min: 2000, max: 3500 },
+    { min: 3500, max: 6000 },
+    { min: 6000, max: 10000 },
+    { min: 10000, max: 14000 },
+    { min: 14000, max: 16000 },
+    { min: 16000, max: 17600 }
+  ];
+  let chartBars = '';
+  for (const band of chartBands) {
+    const bandWords = state.tested.filter(w => w.r >= band.min && w.r <= band.max);
+    const rate = bandWords.length > 0 ? bandWords.filter(w => w.response > 0.5).length / bandWords.length : 0;
+    const height = Math.max(4, rate * 100);
+    chartBars += `<div class="chart-bar" style="height:${height}%;"></div>`;
+  }
+  const refinementHtml = !isAdvanced ? `
+    <div class="refinement-section">
+      <h3>Refine Your Results</h3>
+      <p>Want a narrower confidence interval? The Advanced Test focuses ~40 words around your boundary, typically narrowing the interval by 50–70%.</p>
+      <div class="refinement-input-group">
+        <label for="refinement-input">Optional: Test words within ±</label>
+        <input type="number" id="refinement-input" placeholder="1000" min="500" max="5000" value="3000">
+        <span style="color: #a1a1a6;">of your estimate</span>
+      </div>
+      <button class="btn-primary" onclick="startAdvancedTest()" style="margin-top: 20px;">Start Advanced Test</button>
+    </div>
+  ` : '';
+  document.getElementById('result-content').innerHTML = `
+    <div style="text-align: center;">
+      <p class="result-hero-label">Your vocabulary size</p>
+      <div class="result-hero-number">${est.toLocaleString()}</div>
+      <div class="cefr-badge">${cefr} Level</div>
+
+      <div class="level-bar-container">
+        <div class="level-bar-bg">
+          <div class="level-bar-fill" id="result-bar" style="width:0%"></div>
+        </div>
+        <div class="level-labels">
+          <span>0</span><span>5k</span><span>10k</span><span>15k</span><span>17.6k</span>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value">${result.totalResponses}</div>
+          <div class="stat-label">Total Words Tested</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">&plusmn;${Math.round(ciWidth/2).toLocaleString()}</div>
+          <div class="stat-label">95% CI Half-Width</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">${result.confidence[0].toLocaleString()}</div>
+          <div class="stat-label">CI Lower Bound</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">${result.confidence[1].toLocaleString()}</div>
+          <div class="stat-label">CI Upper Bound</div>
+        </div>
+      </div>
+
+      ${comparisonHtml}
+
+      ${chartBars ? `
+      <div class="knowledge-chart">
+        <p class="chart-title">Knowledge Rate by Frequency Band</p>
+        <div class="chart-bars">
+          ${chartBars}
+        </div>
+        <div class="chart-labels">
+          <span>Most Common</span><span>Least Common</span>
+        </div>
+      </div>` : ''}
+
+      ${refinementHtml}
+
+      <div style="text-align:center;margin-top:40px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        ${!isAdvanced ? '' : '<button class="btn-secondary" onclick="location.reload()">Start Over</button>'}
+        <button class="${isAdvanced ? 'btn-primary' : 'btn-secondary'}" onclick="location.reload()">Start Over</button>
+      </div>
+
+      <div class="algo-section">
+        <h3>${isAdvanced ? 'Advanced Test: ' : ''}Algorithm Details</h3>
+        ${isAdvanced ? `
+          <p>The advanced test used the quick test's estimate (&theta; &asymp; ${state.prevEstimate.toLocaleString()}) to focus all 40 questions within a &plusmn;${state.refinementRange} word range around the boundary. By concentrating questions where P(know) &asymp; 0.5, each question provides maximum Fisher Information, making the estimate converge much faster.</p>
+        ` : `
+          <p><strong>Phase 1 (Scan):</strong> Tests 2 words from 11 evenly-spaced bands to get a rough picture of your knowledge curve.</p>
+          <p><strong>Phase 2 (Refine):</strong> Binary search within the boundary zone, testing 3–4 words per band.</p>
+        `}
+        <p><strong>Estimation:</strong> Maximum Likelihood Estimation of a logistic model P(know|r) = 1/(1+exp(&beta;(r-&theta;))). The 95% CI is derived from the Fisher Information: SE(&theta;) = 1/&radic;I(&theta;), where I(&theta;) = &Sigma; n<sub>i</sub> &beta;&sup2; P<sub>i</sub>(1-P<sub>i</sub>).</p>
+        <p>CI width scales as <strong>1/&radic;n</strong> for random sampling, but the adaptive design concentrates questions at maximum-information points, achieving better precision per question.</p>
+        <div class="math-note">
+          <strong>Mathematical Details:</strong> For each word at rank r, the logistic probability is P(r) = 1/(1+exp(-&beta;(r-&theta;))). We used &beta; = 0.001 and grid search from 100 to 17,000 (step 50) to find &theta; that maximizes the log-likelihood. Fisher Information at &theta; is computed as I(&theta;) = &Sigma; &beta;&sup2; P(1-P).
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('test').classList.add('hidden');
+  document.getElementById('result').classList.remove('hidden');
+
+  setTimeout(() => {
+    const bar = document.getElementById('result-bar');
+    if (bar) bar.style.width = pct + '%';
+  }, 100);
+}
+
+function startAdvancedTest() {
+  const input = document.getElementById('refinement-input');
+  const refinementRange = parseInt(input.value) || 3000;
+  state.refinementRange = refinementRange;
+  startTest('advanced');
+}
+
+function startTest(mode) {
+  if (mode === 'advanced' && lastResult) {
+    state = initState(mode, lastResult);
+    state.refinementRange = document.getElementById('refinement-input')?.value || 3000;
+  } else {
+    state = initState(mode);
+  }
+
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('result').classList.add('hidden');
+  document.getElementById('test').classList.remove('hidden');
+
+  const badge = document.getElementById('test-mode-badge');
+  badge.textContent = mode === 'advanced' ? 'Advanced Test' : 'Quick Test';
+
+  nextWord();
+}
+  </script>
+</body>
+</html>
